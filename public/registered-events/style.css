@@ -1,0 +1,402 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+    --primary-purple: #8A2BE2;
+    --light-purple: #a78bfa;
+    --dark-bg: #0C002B;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #030014;
+    background: url(../images/home.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.menu-header .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.menu-header .user-info {
+    flex-grow: 1;
+}
+
+.menu-header .user-info strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.menu-header .user-info span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.menu-header .edit-icon {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu ul li a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-menu hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0.75rem 0;
+}
+
+
+/* --- HERO SECTION --- */
+.hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- EVENTS CONTAINER --- */
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 35px;
+    padding: 50px;
+}
+
+/* --- NO EVENTS MESSAGE --- */
+.no-events-message {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 20px;
+    grid-column: 1 / -1;
+    /* Span across all columns */
+}
+
+.no-events-message p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.no-events-message .btn {
+    background-color: var(--primary-purple);
+    color: white;
+    text-decoration: none;
+}
+
+
+/* --- EVENT CARD STYLING --- */
+.event-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.event-banner {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.event-info {
+    padding: 25px;
+}
+
+.event-info .event-name {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.event-info .event-meta {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.event-info .event-meta i {
+    color: var(--light-purple);
+}
+
+.event-actions {
+    margin-top: 1.5rem;
+    padding: 0 25px 25px;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.view-qr {
+    background-color: #5a3f9a;
+    border-color: #7c5cb4;
+}
+
+.view-details {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.view-details:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Modal View QR Button */
+.modal-view-qr-btn {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(167, 139, 250, 0.4);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.modal-view-qr-btn:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(167, 139, 250, 0.5);
+}
+
+.modal-view-qr-btn:active {
+    transform: translateY(0);
+}
+
+/* --- QR CODE MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+}
+
+.modal-overlay .modal-content {
+    background: linear-gradient(135deg, rgba(43, 33, 67, 0.95) 0%, rgba(30, 20, 50, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(167, 139, 250, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--text-primary);
+    max-width: 400px;
+    width: 100%;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-overlay .modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.qr-large {
+    margin: 1rem auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-overlay .modal-content p {
+    color: var(--text-secondary);
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.close-modal {
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid rgba(167, 139, 250, 0.5);
+    color: var(--text-primary);
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.close-modal:hover {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.4) 0%, rgba(139, 92, 246, 0.4) 100%);
+    border-color: rgba(167, 139, 250, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(167, 139, 250, 0.3);
+}
+
+.close-modal:active {
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .events-container {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-overlay .modal-content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .modal-overlay .modal-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .qr-large {
+        max-width: 240px;
+        padding: 1rem;
+    }
+
+    .close-modal {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 580px) {
+
+    #wishlist-trigger {
+        display: none;
+    }
+}

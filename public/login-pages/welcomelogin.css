@@ -1,0 +1,394 @@
+
+:root {
+    --primary-purple: #8A2BE2;
+    --light-purple: #a78bfa;
+    --dark-bg: #0C002B;
+    --text-primary: #FFFFFF;
+    --text-secondary: #D1D5DB;
+    --input-bg: rgba(255, 255, 255, 0.08);
+    --border-color-light: rgba(255, 255, 255, 0.15);
+
+
+    --figma-card-gradient-start: rgba(255, 255, 255, 0.08);
+    --figma-card-gradient-end: rgba(255, 255, 255, 0.02);
+    --figma-login-btn-color: #7B3EF5;
+    --figma-login-btn-hover: #9b6ef7;
+    --overall-dark-bg: #1A1A1A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+    background: url(../images/login-background.jpg);   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.modal-page-body {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+.modal-container {
+    background: linear-gradient(135deg, var(--figma-card-gradient-start) 0%, var(--figma-card-gradient-end) 100%);
+    border-radius: 20px;
+    padding: 30px;
+    /* Slightly less padding for a tighter feel as in Figma */
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    /* Stronger shadow for modal depth */
+    width: 100%;
+    max-width: 480px;
+    text-align: left;
+    position: relative;
+    /* For positioning the close button */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    /* Adjusted margin */
+}
+
+.login-switch-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.login-switch {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.login-switch:hover {
+    color: var(--text-primary);
+}
+
+.login-switch.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.login-switch.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-purple);
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    /* Make it circular */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#messageContainer {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#messageContainer .message {
+  font-size: 14px;
+  color: red;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+#messageContainer .success-message {
+  color: #28a745; /* green for success */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+
+.modal-title {
+    font-size: 1.8rem;
+    /* Adjusted from 2rem in figma, matching image */
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+    text-align: left;
+    /* Ensure it's left aligned as in Figma */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#userEmail{
+    width: 60%;
+    margin-left: 5px;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.3);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Custom checkbox styling */
+.custom-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-checkbox:checked {
+    background-color: var(--figma-login-btn-color);
+    border-color: var(--figma-login-btn-color);
+}
+
+/* Checkmark for custom checkbox */
+.custom-checkbox:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+}
+
+.login-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    border: none;
+}
+
+.btn-login {
+    background-color: var(--figma-login-btn-color);
+    color: var(--text-primary);
+    flex-grow: 1;
+}
+
+.btn-login:hover {
+    background-color: var(--figma-login-btn-hover);
+    transform: translateY(-1px);
+}
+
+.btn-create-account {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color-light);
+    flex-grow: 1;
+}
+
+.btn-create-account:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.bottom-links {
+    display: flex;
+    justify-content: space-between;
+    /* Spreads them out */
+    align-items: center;
+    margin-top: 20px;
+    /* Adjusted margin */
+}
+
+.forgot-password,
+.admin-portal {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.forgot-password:hover,
+.admin-portal:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .modal-container {
+        padding: 25px 20px;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .login-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bottom-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        /* Align left for cleaner look on small screens */
+    }
+}
+
+#pass-group{
+    position: relative;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+#togglePassword{
+    cursor: pointer;
+    /* display: no; */
+    position: absolute;
+    left: calc(100% - 40px);
+    top: 37px;
+}
+
+#togglePassword img{
+    width: 20px;
+}
+
+.back-btn button{
+    /* width: 100%; */
+    padding: 13px 0;
+    
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 2px 6px #796cfb80;
+}
+
+
+.back-btn button:hover:not(:disabled) {
+    /* transform: scale(1.001); */
+    box-shadow: 0 4px 12px #796cfbaa;
+}
+
+.back-btn button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.back-btn button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.back-btn button{
+    
+    transform: scale(0.8);
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    z-index: 999;
+}
+.back-btn button{
+    background-color: white;
+    color: black;
+    border-radius: 999px;
+    padding: 20px;
+    z-index: 999;
+}

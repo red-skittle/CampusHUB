@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Editor / IDE
+.vscode/
+.idx
+
+# Local config / data
+campus.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+service_key.json

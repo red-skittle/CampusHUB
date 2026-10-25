@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>CampusHUB</h2>
+                <p class="logo-subtitle">Admin Dashboard</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <span class="icon">📋</span>
+                    <span>Order List</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📄</span>
+                    <span>Order Detail</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📈</span>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⭐</span>
+                    <span>Reviews</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🍔</span>
+                    <span>MENU</span>
+                </a>
+            </nav>
+
+            <!-- Add Menu Promo -->
+            <div class="promo-card">
+                <div class="promo-icon">☕</div>
+                <h3>Cheer up</h3>
+                <p>Organize your menus through button bellow</p>
+                <button class="promo-btn">Add Menus</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search here..." id="searchInput">
+                </div>
+                <div class="header-icons">
+                    <div class="icon-badge">
+                        <span class="icon-btn">🔔</span>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="icon-badge">
+                        <span class="icon-btn">💬</span>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="icon-badge">
+                        <span class="icon-btn">🛒</span>
+                        <span class="badge">8</span>
+                    </div>
+                    <div class="icon-badge">
+                        <span class="icon-btn">❤️</span>
+                        <span class="badge">2</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="user-name">Hello, <strong>Ridang</strong></span>
+                        <div class="user-avatar">👤</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Order List Section -->
+            <section class="order-section">
+                <div class="section-header">
+                    <h1>Order List</h1>
+                    <button class="filter-btn" id="filterBtn">
+                        <span>🔻</span> Filter
+                    </button>
+                </div>
+
+                <!-- Filter Dropdown -->
+                <div class="filter-dropdown" id="filterDropdown">
+                    <label>
+                        <input type="checkbox" value="all" checked> All
+                    </label>
+                    <label>
+                        <input type="checkbox" value="TBD"> TBD
+                    </label>
+                    <label>
+                        <input type="checkbox" value="Accepted"> Accepted
+                    </label>
+                    <label>
+                        <input type="checkbox" value="Rejected"> Rejected
+                    </label>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order_ID</th>
+                                <th>Timestamp</th>
+                                <th>Customer Name</th>
+                                <th>Mobile No.</th>
+                                <th>Block</th>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Orders will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <span class="pagination-info">showing <span id="showingCount">10</span> from <span id="totalCount">150</span> data..</span>
+                    <div class="pagination-controls">
+                        <button class="page-btn" id="prevBtn">< Previous</button>
+                        <button class="page-btn page-number active" data-page="1">1</button>
+                        <button class="page-btn page-number" data-page="2">2</button>
+                        <button class="page-btn page-number" data-page="3">3</button>
+                        <button class="page-btn page-number" data-page="4">4</button>
+                        <button class="page-btn" id="nextBtn">Next ></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="../firebase-config.js"></script>
+</body>
+</html>

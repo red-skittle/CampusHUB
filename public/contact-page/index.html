@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../mobile-nav/mobile-nav.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../nav-bar/nav.css">
+    <link rel="stylesheet" href="../footer/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class='container-header' id="navbar-placeholder"></div>
+
+    <div class="hero">
+        <h1>Contact Us</h1>
+        <p>Get in touch with the CampusHUB team</p>
+    </div>
+
+    <main class="contact-us-content">
+        <section class="contact-form">
+            <h2>Send us a message</h2>
+            <form action="https://formsubmit.co/campushubqueries@gmail.com" method="POST">
+                <div>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+            
+                <div>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+            
+                <div>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+            
+                <button type="submit">Send Message</button>
+                <input type="hidden" name="_next" value="http://127.0.0.1:5502/public/contact-page/index.html">
+            </form>
+
+        </section>
+        <!-- <section class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Email:</strong> info@campushub.com</p>
+            <p><strong>Phone:</strong> +1 234 567 890</p>
+            <p><strong>Address:</strong> 123 University Street, City, Country</p>
+        </section> -->
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">CampusHUB</a>
+                    <p>Your one-stop solution for campus life. Discover events, order food, and connect with your
+                        community.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../meet-team/index.html">Our Team</a></li>
+                        <li><a href="../events-page/index.html">Events</a></li>
+                        <li><a href="../Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                        <li><a href="../contact-page/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../legal/terms.html">Terms and Conditions</a></li>
+                        <li><a href="../legal/privacy.html">Privacy Policy</a></li>
+                        <li><a href="../legal/refund.html">Refund Policy</a></li>
+                        <li><a href="../legal/cancellation.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="ph-bold ph-envelope"></i> <a href="mailto:info@campushub.com">campushubqueries@gmail.com</a>
+                    </p>
+                    <!-- <p><i class="ph-bold ph-phone"></i> +1 234 567 890</p> -->
+                    <p><i class="ph-bold ph-map-pin"></i> Manipal University, Jaipur</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CampusHUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="dynamic-island-nav">
+        <a href="../events-page/index.html" class="nav-icon">
+            <i class="fas fa-ticket"></i>
+        </a>
+        <a href="../Outlet-Website- Food Homepage/HomePage.html" class="nav-icon">
+            <i class="fas fa-mug-hot"></i>
+        </a>
+        <a href="../profilePage/index.html" class="nav-icon">
+            <i class="fas fa-user"></i>
+        </a>
+    </div>
+
+    <div id="mobile-nav-placeholder"></div>
+
+
+    <script src="../nav-bar/nav.js"></script>
+    <script type="module" src="../nav-bar/navbar-auth.js"></script>
+    <script type="module" src="script.js"></script>
+    <script src="../footer/script.js"></script>
+    <script src="../mobile-nav/mobile-nav.js"></script>
+    <script src="/public/shared/global-search-redirect.js" defer></script>
+</body>
+
+<!-- Page-specific script: remove certain shared news-ticker items on Contact page only -->
+<script>
+    (function removeTickerItems() {
+        const targets = [
+            "Welcome to CampusHUB — new semester updates available.",
+            "Midterm schedules released — check your course pages.",
+            "Library hours extended during exam week.",
+            "Career fair registration now open — sign up today."
+        ];
+        function tryRemove() {
+            const track = document.querySelector('#news-ticker .ticker-track');
+            if (!track) return false;
+            const items = Array.from(track.querySelectorAll('.ticker-item'));
+            items.forEach(i => {
+                const txt = i.textContent.trim();
+                if (targets.includes(txt)) i.remove();
+            });
+            return true;
+        }
+        function runOnce() {
+            if (tryRemove()) return;
+            let attempts = 0;
+            const id = setInterval(() => {
+                attempts++;
+                if (tryRemove() || attempts > 10) clearInterval(id);
+            }, 300);
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', runOnce);
+        else runOnce();
+        window.addEventListener('navbarLoaded', function () { tryRemove(); });
+    })();
+</script>
+
+</body>
+</body>
+
+</html>

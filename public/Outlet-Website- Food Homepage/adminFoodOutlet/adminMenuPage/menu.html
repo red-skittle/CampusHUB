@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusHUB Admin Menu</title>
+    
+    <link rel="stylesheet" href="../../sidebar/sidebar.css" />
+    <link rel="stylesheet" href="menu.css" />
+
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+  <div class="dashboard-container" id="dashboardContainer">
+
+    <main class="main-content">
+      
+      <header class="main-header">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar menu">
+          <i class="ph ph-list"></i>
+        </button>
+
+        <div class="search-bar">
+          <i class="ph ph-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="Search here">
+        </div>
+
+        <div class="header-actions"> 
+             <div class="header-icons">
+               <div class="icon-btn has-badge" data-badge="21" role="button" tabindex="0" aria-label="View notifications">
+                 <i class="ph ph-bell"></i>
+               </div>
+               <div class="icon-btn has-badge" data-badge="53" role="button" tabindex="0" aria-label="View messages">
+                 <i class="ph ph-chat-circle-dots"></i>
+               </div>
+               <div class="icon-btn has-badge" data-badge="15" role="button" tabindex="0" aria-label="View gifts">
+                 <i class="ph ph-gift"></i>
+               </div>
+               <div class="icon-btn has-badge" data-badge="19" role="button" tabindex="0" aria-label="View settings">
+                 <i class="ph ph-gear"></i>
+               </div>
+             </div>
+             <div class="user-profile">
+               <span>Hello, <strong id="outletAdminName">Admin</strong></span>
+               <i class="ph ph-user-circle user-avatar-icon" aria-label="User profile"></i>
+             </div>
+        </div>
+      </header>
+      
+      <section class="content-area">
+
+        <div class="menu-content-wrapper">
+        
+        <div class="page-header-row">
+            <div class="page-title-section">
+              <h1>MENU PAGE</h1>
+              <p>Go through your menu</p>
+            </div>
+            
+            <div class="page-actions">
+              <div class="custom-dropdown-wrapper">
+                <div class="custom-dropdown-trigger filter-btn filter-icon" data-controls="categoryFilter-list" tabindex="0">
+                  <span class="selected-option-text">Filter</span>
+                </div>
+                
+                <ul class="custom-dropdown-list" id="categoryFilter-list">
+                  <li data-value="all" class="selected">Filter</li>
+                  <li data-value="veg">Veg</li>
+                  <li data-value="nonveg">Non-Veg</li>
+                  <li data-value="pizza">Pizza</li>
+                  <li data-value="drinks">Drinks</li>
+                  <li data-value="sides">Sides</li>
+                </ul>
+
+                <select class="filter-btn filter-icon" id="categoryFilter" aria-label="Filter menu items" style="display: none;">
+                  <option value="all">Filter</option>
+                  <option value="veg">Veg</option>
+                  <option value="nonveg">Non-Veg</option>
+                  <option value="pizza">Pizza</option>
+                  <option value="drinks">Drinks</option>
+                  <option value="sides">Sides</option>
+                </select>
+              </div>
+
+              <div class="custom-dropdown-wrapper">
+                <div class="custom-dropdown-trigger filter-btn sort-icon" data-controls="sortFilter-list" tabindex="0">
+                  <span class="selected-option-text">Sort</span>
+                </div>
+                
+                <ul class="custom-dropdown-list" id="sortFilter-list">
+                  <li data-value="name-asc" class="selected">Sort</li>
+                  <li data-value="name-asc">Name (A-Z)</li>
+                  <li data-value="price-low">Price: Low to High</li>
+                  <li data-value="price-high">Price: High to Low</li>
+                </ul>
+
+                <select class="filter-btn sort-icon" id="sortFilter" aria-label="Sort menu items" style="display: none;">
+                  <option value="name-asc">Sort</option>
+                  <option value="name-asc">Name (A-Z)</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                </select>
+              </div>
+
+            </div>
+        </div> 
+
+          <a href="addMenu.html" class="btn-add-item">
+            <i class="ph ph-plus-circle"></i> Add Item
+          </a>
+          
+        <div class="menu-list" id="menuListContainer"></div>
+
+      </section>
+    </main>
+  </div>
+
+  <div id="menuModal" class="modal-overlay" style="display: none">
+     <div class="modal-content menu-modal-content">
+       <button class="modal-close" id="modalCloseButton" aria-label="Close modal">&times;</button>
+       <h2 id="modalTitle">Edit Menu Item</h2> 
+       <form id="menuForm" class="menu-form">
+         <input type="hidden" id="modalItemId" />
+         <div class="form-group image-upload-group">
+           <label for="modalImgUpload">Item Image</label>
+           <input type="file" id="modalImgUpload" accept="image/*" />
+           <div class="image-preview" id="imagePreview">
+             <img src="" alt="Image Preview" class="image-preview-img" />
+             <span class="image-preview-text">Upload Image</span>
+           </div>
+         </div>
+         <div class="form-group-grid">
+           <div class="form-group">
+             <label for="modalName">Item Name</label>
+             <input type="text" id="modalName" required />
+           </div>
+           <div class="form-group">
+             <label for="modalCategory">Category</label>
+             <select id="modalCategory">
+               <option value="pizza">Pizza</option>
+               <option value="drinks">Drinks</option>
+               <option value="sides">Sides</option>
+             </select>
+           </div>
+           <div class="form-group">
+             <label for="modalSizes">Sizes (comma-separated)</label>
+             <input type="text" id="modalSizes" placeholder="e.g., S, M, L" />
+           </div>
+           <div class="form-group">
+             <label for="modalPrices">Prices (comma-separated)</label>
+             <input type="text" id="modalPrices" placeholder="e.g., 140, 210, 420" />
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="modalDesc">Description</label>
+           <textarea id="modalDesc" rows="3"></textarea>
+         </div>
+         <div class="modal-actions">
+           <button type="button" class="modal-btn-cancel" id="modalCancelButton">Cancel</button>
+           <button type="submit" class="modal-btn-save">Save Item</button>
+         </div>
+       </form>
+     </div>
+  </div>
+
+
+  
+  <script src="../../sidebar/sidebar.js" type="module" defer></script>
+  <script src="menu.js" type="module" defer></script>
+
+</body>
+</html>

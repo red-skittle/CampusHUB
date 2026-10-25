@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Cancellation Policy</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../legal-pages.css">
+    <link rel="stylesheet" href="../footer/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <div class="logo">CampusHUB</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="/about-page/index.html">About</a></li>
+                <li><a href="/events-page/index.html">Events</a></li>
+                <li><a href="/Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                <li><a href="/contact-page/index.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="legal-content">
+            <h1>Cancellation Policy</h1>
+            <p>Our policy is that all sales are final. We do not offer cancellations on any of our products or services once the order has been placed.</p>
+
+            <h2>Subscription Services</h2>
+            <p>For subscription services, you may cancel your subscription at any time. Your subscription will remain active until the end of the current billing cycle. No refunds will be given for any remaining period of the subscription.</p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder" style="width: 100%;"></div>
+    <script>
+        fetch('../footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                // 1. Insert the Footer HTML
+                document.getElementById('footer-placeholder').innerHTML = data;
+
+                // 2. Dynamically load the Footer Script
+                const script = document.createElement('script');
+                script.src = '../footer/script.js'; // This points to the script in the footer folder
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error loading the footer:', error));
+    </script>
+</body>
+
+</html>

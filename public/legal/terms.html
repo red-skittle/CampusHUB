@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Terms & Conditions</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../legal-pages.css">
+    <link rel="stylesheet" href="../footer/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <div class="logo">CampusHUB</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="/about-page/index.html">About</a></li>
+                <li><a href="/events-page/index.html">Events</a></li>
+                <li><a href="/Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                <li><a href="/contact-page/index.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="legal-content">
+            <h1>Terms and Conditions</h1>
+            <p>Welcome to CampusHUB. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern CampusHUB's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
+
+            <h2>1. The use of this website is subject to the following terms of use:</h2>
+            <ul>
+                <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</li>
+                <li>This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties.</li>
+                <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
+            </ul>
+
+            <h2>2. Disclaimer</h2>
+            <p>The information contained in this website is for general information purposes only. The information is provided by CampusHUB and while we endeavour to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder" style="width: 100%;"></div>
+    <script>
+        fetch('../footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                // 1. Insert the Footer HTML
+                document.getElementById('footer-placeholder').innerHTML = data;
+
+                // 2. Dynamically load the Footer Script
+                const script = document.createElement('script');
+                script.src = '../footer/script.js'; // This points to the script in the footer folder
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error loading the footer:', error));
+    </script>
+</body>
+
+</html>

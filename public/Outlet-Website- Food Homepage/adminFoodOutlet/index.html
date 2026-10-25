@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusHUB Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../sidebar/sidebar.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;700&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container" id="dashboardContainer">
+
+      <main class="main-content">
+        <header class="main-header">
+          <button class="sidebar-toggle" id="sidebar Toggle" aria-label="Toggle sidebar menu">
+            <i class="ph ph-list"></i>
+          </button>
+
+        <div class="page-title-section">
+          <h1>DASHBOARD</h1>
+          <p>View your dashboard</p>
+        </div>
+
+        <div class="search-bar">
+          <i class="ph ph-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="Search here">
+        </div>
+
+        <div class="header-actions"> 
+          
+            <div class="header-icons">
+              <div class="icon-btn has-badge" data-badge="21" role="button" tabindex="0" aria-label="View notifications">
+                <i class="ph ph-bell"></i>
+              </div>
+              <div class="icon-btn has-badge" data-badge="53" role="button" tabindex="0" aria-label="View messages">
+                <i class="ph ph-chat-circle-dots"></i>
+              </div>
+              <div class="icon-btn has-badge" data-badge="15" role="button" tabindex="0" aria-label="View gifts">
+                <i class="ph ph-gift"></i>
+              </div>
+              <div class="icon-btn has-badge" data-badge="19" role="button" tabindex="0" aria-label="View settings">
+                <i class="ph ph-gear"></i>
+              </div>
+            </div>
+            <div class="user-profile">
+              <span>Hello, <strong id="outletAdminName"></strong></span>
+              <img src="https://placehold.co/56x56" alt="User Avatar" class="user-avatar-image">
+            </div>
+        </div>
+
+        </header>
+
+
+
+        <section class="stats-cards">
+          <div class="stat-card">
+            <div class="stat-icon red-icon">
+              <img src="assets/ordered.png" alt="Orders Icon" />
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="statTotalOrders">0</span>
+              <span class="stat-label">Total Orders</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red-icon">
+              <img src="assets/delivered.png" alt="Delivered Icon" />
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="statTotalDelivered">0</span>
+              <span class="stat-label">Total Delivered</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red-icon">
+              <img src="assets/cancelled.png" alt="Cancelled Icon" />
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="statTotalCanceled">0</span>
+              <span class="stat-label">Total Canceled</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red-icon">
+              <img src="assets/revenue.png" alt="Revenue Icon" />
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="statTotalRevenue">$0</span>
+              <span class="stat-label">Total Revenue</span>
+            </div>
+          </div>
+        </section>
+        <section class="orders-table-container ">
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>ORDER _ID</th>
+                <th>Name</th>
+                <th>Block</th>
+                <th>Items</th>
+                <th>Order accept</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+          <a href="#" class="load-more" id="loadMoreOrders">Load more...</a>
+        </section>
+        <section class="charts-container ">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Total Revenue</h3>
+              <div class="legend">
+                <span class="legend-item blue" id="legendYear1">2024</span>
+                <span class="legend-item red" id="legendYear2">2025</span>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="totalRevenueChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Customer Map</h3>
+              <select class="filter-dropdown" id="customerMapFilter">
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="customerMapChart"></canvas>
+            </div>
+          </div>
+        </section>
+        <section class="reviews-container ">
+          <div class="reviews-header">
+            <div class="reviews-header-content">
+              <h2>Student Review</h2>
+            </div>
+            <div class="reviews-navigation">
+              <div class="nav-arrow" id="reviewArrowLeft">
+                <i class="ph ph-caret-left"></i>
+              </div>
+              <div class="nav-arrow" id="reviewArrowRight">
+                <i class="ph ph-caret-right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="reviews-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="orderDetailsModal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <button class="modal-close" id="modalCloseButton">&times;</button>
+        <h2>Order Details</h2>
+        <div id="modalBodyContent" class="modal-body-flex">
+          <div class="modal-details-left">
+            <p><strong>Order ID:</strong> <span id="modalOrderId"></span></p>
+            <p><strong>Name:</strong> <span id="modalName"></span></p>
+            <p><strong>Block:</strong> <span id="modalBlock"></span></p>
+            <p id="modalPhoneContainer">
+              <strong>Phone No:</strong> <span id="modalPhone"></span>
+            </p>
+          </div>
+          <div class="modal-details-right">
+            <p><strong>Items:</strong></p>
+            <ul id="modalItemsList"></ul>
+          </div>
+          <p
+            id="modalNotesContainer"
+            class="modal-notes-bottom"
+            style="display: none"
+          >
+            <strong>Notes:</strong> <span id="modalNotes"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="confirmationPopover" class="popover" style="display: none">
+      <p>Are you sure?</p>
+      <div class="popover-actions">
+        <button id="popoverConfirm" class="popover-btn confirm">Confirm</button>
+        <button id="popoverCancel" class="popover-btn cancel">Cancel</button>
+      </div>
+    </div>
+
+    <script src="data.js" defer></script>
+    <script src="script.js" defer type="module"></script>
+    <script src="../sidebar/sidebar.js" type="module" defer></script>
+  </body>
+</html>

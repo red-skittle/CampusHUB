@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusHUB Admin - Order List</title>
+    
+    <link rel="stylesheet" href="../sidebar/sidebar.css" />
+    
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+  <div class="dashboard-container" id="dashboardContainer">
+    
+    <main class="main-content">
+      
+      <header class="main-header">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar menu">
+          <i class="ph ph-list"></i>
+        </button>
+
+        <div class="search-bar">
+          <i class="ph ph-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="Search here">
+        </div>
+
+        <div class="header-actions"> 
+            <div class="header-icons">
+              <div class="icon-btn has-badge" data-badge="21" role="button" tabindex="0" aria-label="View notifications">
+                <i class="ph ph-bell"></i>
+              </div>
+              <div class="icon-btn has-badge" data-badge="53" role="button" tabindex="0" aria-label="View messages">
+                <i class="ph ph-chat-circle-dots"></i>
+              </div>
+              <div class="icon-btn has-badge" data-badge="15" role="button" tabindex="0" aria-label="View gifts">
+                <i class="ph ph-gift"></i>
+              </div>
+              <div class="icon-btn has-badge" data-badge="19" role="button" tabindex="0" aria-label="View settings">
+                <i class="ph ph-gear"></i>
+              </div>
+            </div>
+            <div class="user-profile">
+              <span>Hello, <strong id="outletAdminName">Dialog</strong></span>
+              <img src="https://placehold.co/56x56" alt="User Avatar" class="user-avatar-image">
+            </div>
+        </div>
+      </header>
+      
+      <section class="content-area">
+
+        <div class="page-header-row">
+            <div class="page-title-section">
+              <h1>ORDER LIST</h1>
+              <p>Go through your order list</p>
+            </div>
+            
+            <div class="page-actions">
+              <div class="custom-dropdown-wrapper">
+                
+                <div class="custom-dropdown-trigger filter-btn btn-filter-main" data-controls="statusFilter-list" tabindex="0">
+                  <img src="filter2.png" alt="Filter" class="filter-img">
+                  <span class="selected-option-text">Filter</span>
+                </div>
+                
+                <ul class="custom-dropdown-list" id="statusFilter-list">
+                  <li data-value="all" class="selected">All Status</li>
+                  <li data-value="Accepted">Accepted</li>
+                  <li data-value="Rejected">Rejected</li>
+                  <li data-value="TBD">TBD</li>
+                </ul>
+
+                <select class="filter-btn" id="statusFilter" aria-label="Filter orders by status" style="display: none;">
+                  <option value="all">All Status</option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="Rejected">Rejected</option>
+                  <option value="TBD">TBD</option>
+                </select>
+              </div>
+            </div>
+        </div> 
+
+        <div class="table-container-wrapper">
+          <table class="order-table">
+            <thead>
+              <tr>
+                <th>Order_ID</th>
+                <th>Timestamp</th>
+                <th>Customer Name</th>
+                <th>Mobile No.</th>
+                <th>Block</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="orderTableBody">
+              </tbody>
+          </table>
+        </div>
+
+        <div class="pagination-container">
+          <span class="pagination-info" id="paginationInfo">showing 0 from 0 data..</span>
+          <nav class="pagination-nav">
+            <a href="#" class="prev-next disabled" id="prevButton" aria-label="Previous page">&lt; Previous</a>
+            <div class="page-numbers" id="pageNumbers">
+              </div>
+            <a href="#" class="prev-next" id="nextButton" aria-label="Next page">Next &gt;</a>
+          </nav>
+        </div>
+        </section>
+    </main>
+  </div>
+
+  <script src="../sidebar/sidebar.js" defer></script>
+  <script src="script.js" type="module" defer></script>
+</body>
+</html>

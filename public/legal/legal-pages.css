@@ -1,0 +1,24 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #030014;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.legal-content {
+    background: rgba(12, 0, 43, 0.8);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+h1, h2 {
+    color: #a78bfa;
+}

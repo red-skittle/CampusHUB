@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Year — Academics</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../footer/style.css">
+    <link rel="stylesheet" href="../../mobile-nav/mobile-nav.css">
+    <link rel="icon" type="image/png" href="../../images/CampusHUBlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <meta name="robots" content="noindex">
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <a href="../../index.html">
+                <div class="logo">CampusHUB</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../events-page/index.html">Events</a></li>
+                <li><a href="../index.html" class="active">Academics</a></li>
+                <li><a href="../../Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                <li><a href="../../meet-team/index.html">Our Team</a></li>
+                <li><a href="../../contact-page/index.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-right">
+
+                <form id="header-search-form" class="search-bar" style="display: none;">
+                    <input type="text" id="header-search-input" placeholder="Enter event you're looking for">
+                    <button type="submit" aria-label="Search"><img
+                            src="../../Outlet-Website- Food Homepage/assets/search.png" alt="Search Icon"
+                            style="width: 23px;"></button>
+                </form>
+
+                <a href="../../events-page/index.html" id="mobile-search-trigger" class="mobile-search-icon"
+                    style="display: none;">
+                    <i class="fas fa-search" style="color: white; font-size: 1.5rem;"></i>
+                </a>
+
+                <a href="#" id="wishlist-trigger">
+                    <i class="fa-regular fa-heart" style="color: white;"></i>
+                </a>
+
+                <ul class="nav-auth">
+                    <li class="signup"><a href="../../create-account/">Sign up</a></li>
+                    <li>
+                        <a href="../../login-pages/welcomelogin.html" class="log-in">
+                            Log in
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="profile-dropdown">
+
+                    <button class="profile-icon-btn" id="profileBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+
+                    <div class="dropdown-menu" id="profileMenu">
+
+                        <div class="menu-header">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <strong>Student Name</strong>
+                                <span>Student Name</span>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="../../profilePage/index.html">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../registered-events/index.html">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Registered Events</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../Outlet-Website- Food Homepage/checkout.html">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Food cart</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li>
+                                <a href="../../index.html">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Sign Out</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- News ticker (keeps consistent with landing) -->
+    <div id="news-ticker" class="news-ticker" aria-live="polite" aria-label="Campus news ticker">
+        <div class="ticker-track">
+            <div class="ticker-item">Welcome to CampusHUB — new semester updates available.</div>
+            <div class="ticker-item">Midterm schedules released — check your course pages.</div>
+            <div class="ticker-item">Library hours extended during exam week.</div>
+            <div class="ticker-item">Career fair registration now open — sign up today.</div>
+        </div>
+    </div>
+
+    <main class="container academics-main year-page">
+        <!-- decorative background for subtle depth (matches Academics landing) -->
+        <div class="academics-bg" aria-hidden="true"></div>
+        <script src="../../shared/news-ticker.js"></script>
+
+        <section class="academics-hero grid-hero stacked">
+            <div class="hero-left">
+                <div class="breadcrumb"><a href="../index.html">Academics</a> » 1st Year</div>
+                <h1>1st Year — Foundations & Orientation</h1>
+                <p class="subtitle">Resources and guides to help you start strong in your first year — courses,
+                    orientation, and support.</p>
+                <div class="hero-cta">
+                    <a class="btn primary" href="#courses">View Courses</a>
+                    <a class="btn ghost" href="#resources">Student Resources</a>
+                </div>
+            </div>
+            <div class="hero-right" aria-hidden="true">
+                <div class="hero-panel" aria-hidden="true">
+                    <!-- reuse the simple decorative SVG used on the landing -->
+                    <svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#0b5fff" stop-opacity="0.18" />
+                                <stop offset="1" stop-color="#00a86b" stop-opacity="0.12" />
+                            </linearGradient>
+                            <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#ffffff" stop-opacity="0.2" />
+                                <stop offset="1" stop-color="#ffffff" stop-opacity="0.06" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="8" y="12" width="304" height="176" rx="14" fill="url(#a)" />
+                        <g transform="translate(36,44)">
+                            <rect x="0" y="56" width="180" height="18" rx="4" fill="#fff" opacity="0.9" />
+                            <rect x="6" y="46" width="168" height="18" rx="4" fill="#e6f0ff" />
+                            <rect x="12" y="36" width="156" height="18" rx="4" fill="#d6e8ff" />
+                            <rect x="18" y="26" width="144" height="18" rx="4" fill="#c6dfff" />
+                            <rect x="22" y="28" width="6" height="12" fill="#0b5fff" opacity="0.9" />
+                            <rect x="30" y="38" width="6" height="12" fill="#0b5fff" opacity="0.7" />
+                        </g>
+                        <g transform="translate(190,32)">
+                            <polygon points="0,18 64,0 128,18 64,36" fill="#0b3bb8" opacity="0.95" />
+                            <rect x="50" y="30" width="28" height="6" rx="2" fill="#092a8a" />
+                            <circle cx="66" cy="22" r="3" fill="#ffd166" />
+                        </g>
+                        <circle cx="260" cy="150" r="18" fill="#ffffff" opacity="0.06" />
+                        <circle cx="38" cy="28" r="10" fill="#ffffff" opacity="0.04" />
+                        <rect x="16" y="20" width="288" height="156" rx="12" fill="url(#b)" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <div class="courses-wrap">
+            <section class="courses-main">
+                <h2 id="courses" class="section-heading">Courses</h2>
+                <table class="year-table" aria-describedby="courses">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Course</th>
+                            <th>Instructor</th>
+                            <th>Schedule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="course-row">
+                            <td><span class="course-badge">MATH101</span></td>
+                            <td>Calculus I</td>
+                            <td>Dr. A. Kumar</td>
+                            <td>Mon, Wed — 09:00–10:30</td>
+                        </tr>
+                        <tr class="course-row">
+                            <td><span class="course-badge">CS101</span></td>
+                            <td>Intro to Programming</td>
+                            <td>Prof. S. Mehta</td>
+                            <td>Tue, Thu — 11:00–12:30</td>
+                        </tr>
+                        <tr class="course-row">
+                            <td><span class="course-badge">ENG101</span></td>
+                            <td>Academic Writing</td>
+                            <td>Dr. R. Singh</td>
+                            <td>Fri — 10:00–12:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <aside class="courses-aside">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Orientation Guide</a></li>
+                    <li><a href="#">Study Skills</a></li>
+                    <li><a href="#">Tutoring & Workshops</a></li>
+                </ul>
+
+                <h3 style="margin-top:1rem">Notes</h3>
+                <p class="muted">Check your course page frequently for changes. Contact your advisor for scheduling
+                    help.</p>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../../index.html" class="logo">CampusHUB</a>
+                    <p>Your one-stop solution for campus life. Discover events, order food, and connect with your
+                        community.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../meet-team/index.html">Our Team</a></li>
+                        <li><a href="../../events-page/index.html">Events</a></li>
+                        <li><a href="../../Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                        <li><a href="../../contact-page/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../../legal/terms.html">Terms and Conditions</a></li>
+                        <li><a href="../../legal/privacy.html">Privacy Policy</a></li>
+                        <li><a href="../../legal/refund.html">Refund Policy</a></li>
+                        <li><a href="../../legal/cancellation.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="ph-bold ph-envelope"></i> <a href="mailto:info@campushub.com">info@campushub.com</a>
+                    </p>
+                    <p><i class="ph-bold ph-phone"></i> +1 234 567 890</p>
+                    <p><i class="ph-bold ph-map-pin"></i> 123 University Street, City, Country</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="ph-bold ph-facebook-logo"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="ph-bold ph-twitter-logo"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CampusHUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="mobile-nav-placeholder"></div>
+
+    <div id="wishlist-container">
+        <span id="close-wishlist">&times;</span>
+        <h2>Saved Events</h2>
+        <p>Your saved events and items will appear here.</p>
+    </div>
+
+    <script type="module" src="../../script.js"></script>
+    <script src="../../footer/script.js"></script>
+    <script src="../../mobile-nav/mobile-nav.js"></script>
+    <script src="../../shared/news-ticker.js"></script>
+</body>
+
+</html>

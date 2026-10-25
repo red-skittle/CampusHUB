@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Your Events</title>
+    <link rel="stylesheet" href="../nav-bar/nav.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <div class="container-header" id="navbar-placeholder"></div>
+
+    <main class="events-container">
+        <header class="events-header">
+            <h1>Your Events</h1>
+            <p>Manage every event with ease — organize, track, and engage, all in one place.</p>
+        </header>
+
+        <!-- --- FILTER CONTROLS --- -->
+        <section class="events-controls">
+            <div class="filter-section">
+                <div class="filter-tags">
+                    <button class="tag-btn active" data-filter="all">
+                        <i class="ph-bold ph-squares-four"></i> All Events
+                    </button>
+                    <button class="tag-btn" data-filter="Upcoming">
+                        <i class="ph-bold ph-calendar-check"></i> Upcoming
+                    </button>
+                    <button class="tag-btn" data-filter="Ongoing">
+                        <i class="ph-bold ph-play-circle"></i> Ongoing
+                    </button>
+                    <button class="tag-btn" data-filter="Completed">
+                        <i class="ph-bold ph-check-circle"></i> Completed
+                    </button>
+                </div>
+                <div class="action-buttons">
+                    <a href="../admin_scan_event/index.html" class="scan-event-btn">
+                        <i class="ph-bold ph-qr-code"></i> Scan Events
+                    </a>
+                    <a href="../create-newevent/index.html" class="add-event-btn">
+                        <i class="ph-bold ph-plus-circle"></i> Add New Event
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- EVENTS GRID --- -->
+        <section class="events-grid">
+            <p class="loading-text">Loading your events...</p>
+        </section>
+    </main>
+
+    <!-- --- EVENT DETAILS MODAL --- -->
+    <div id="eventModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Event Details</h2>
+                <button class="close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button class="edit-event-btn">
+                    <i class="ph-bold ph-pencil-simple"></i> Edit Event
+                </button>
+                <button class="delete-event-btn">
+                    <i class="ph-bold ph-trash"></i> Delete Event
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- EDIT EVENT MODAL --- -->
+    <div id="editModal" class="modal-overlay">
+        <div class="modal-content edit-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Event</h2>
+                <button class="close-btn edit-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editEventForm">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="editTitle">Event Title *</label>
+                            <input type="text" id="editTitle" name="title" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="editDescription">Description *</label>
+                            <textarea id="editDescription" name="description" rows="4" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editCategory">Category</label>
+                            <input type="text" id="editCategory" name="category">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editVenue">Venue *</label>
+                            <input type="text" id="editVenue" name="venue" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editStartDate">Start Date *</label>
+                            <input type="datetime-local" id="editStartDate" name="startDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editEndDate">End Date</label>
+                            <input type="datetime-local" id="editEndDate" name="endDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editRegDeadline">Registration Deadline</label>
+                            <input type="datetime-local" id="editRegDeadline" name="registrationDeadline">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editEntryFee">Entry Fee (₹)</label>
+                            <input type="number" id="editEntryFee" name="entryFee" min="0" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editPrizePool">Prize Pool (₹)</label>
+                            <input type="number" id="editPrizePool" name="prizePool" min="0" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editTeamSize">Team Size</label>
+                            <input type="text" id="editTeamSize" name="teamSize" placeholder="e.g., 1-4">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editMode">Mode</label>
+                            <select id="editMode" name="mode">
+                                <option value="Online">Online</option>
+                                <option value="Offline">Offline</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editStatus">Status</label>
+                            <select id="editStatus" name="status">
+                                <option value="Upcoming">Upcoming</option>
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="editBannerUrl">Banner Image URL</label>
+                            <input type="url" id="editBannerUrl" name="bannerImage"
+                                placeholder="https://example.com/image.jpg">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="editRegLink">Registration Link</label>
+                            <input type="url" id="editRegLink" name="registrationLink"
+                                placeholder="https://example.com/register">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-edit-btn">Cancel</button>
+                <button class="save-edit-btn">
+                    <i class="ph-bold ph-floppy-disk"></i> Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- DELETE CONFIRMATION MODAL --- -->
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal-content delete-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Confirm Deletion</h2>
+                <button class="close-btn delete-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this event? This action cannot be undone.</p>
+                <p class="event-name-confirm"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-delete-btn">Cancel</button>
+                <button class="confirm-delete-btn">Delete Event</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- CSV UPLOAD MODAL --- -->
+    <div id="csvUploadModal" class="modal-overlay">
+        <div class="modal-content csv-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Upload Registrations (CSV)</h2>
+                <button class="close-btn csv-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-instructions">
+                    <h3><i class="ph-bold ph-info"></i> Instructions</h3>
+                    <p>Upload a CSV file containing emails of users who have completed payment and registration.</p>
+                    <div class="csv-format">
+                        <strong>Required Format:</strong>
+                        <code>
+email<br>
+user1@muj.manipal.edu<br>
+user2@muj.manipal.edu<br>
+user3@muj.manipal.edu
+                        </code>
+                    </div>
+                    <p class="note"><i class="ph-bold ph-warning"></i> Only the first column (email) will be processed.
+                        Make sure emails match registered users.</p>
+                </div>
+
+                <div class="file-upload-area">
+                    <input type="file" id="csvFileInput" accept=".csv" hidden>
+                    <label for="csvFileInput" class="file-upload-label">
+                        <i class="ph-bold ph-upload-simple"></i>
+                        <span>Choose CSV File</span>
+                    </label>
+                    <p class="file-name"></p>
+                </div>
+
+                <div class="upload-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p class="progress-text">Processing... 0/0</p>
+                </div>
+
+                <div class="upload-results" style="display: none;">
+                    <h3>Upload Results</h3>
+                    <div class="results-summary">
+                        <div class="result-item success">
+                            <i class="ph-bold ph-check-circle"></i>
+                            <span><strong class="success-count">0</strong> registrations created</span>
+                        </div>
+                        <div class="result-item error">
+                            <i class="ph-bold ph-x-circle"></i>
+                            <span><strong class="error-count">0</strong> failed</span>
+                        </div>
+                    </div>
+                    <div class="error-details" style="display: none;">
+                        <h4>Failed Emails:</h4>
+                        <ul class="error-list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-csv-btn">Cancel</button>
+                <button class="upload-csv-btn" disabled>
+                    <i class="ph-bold ph-upload"></i> Upload & Process
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="../nav-bar/nav.js" type="module"></script>
+    <script type="module" src="../nav-bar/navbar-auth.js"></script>
+    <script src="admin.js" type="module"></script>
+</body>
+
+</html>

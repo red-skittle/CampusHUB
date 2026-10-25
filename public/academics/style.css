@@ -1,0 +1,1094 @@
+/* Stronger, modern styles for Academics page */
+:root {
+    --accent: #0b5fff;
+    --accent-2: #00a86b;
+    --muted: #6b7280;
+    --bg: #f7fafc;
+    --card-radius: 12px;
+}
+
+/* --- Magic Bento card variables & styles (provided design) --- */
+:root {
+    --hue: 27;
+    --sat: 69%;
+    --white: hsl(0, 0%, 100%);
+    --purple-primary: rgba(132, 0, 255, 1);
+    --purple-glow: rgba(132, 0, 255, 0.2);
+    --purple-border: rgba(132, 0, 255, 0.8);
+    --border-color-bento: #392e4e;
+    --background-dark-bento: #060010;
+}
+
+/* Academics-specific tokens */
+:root {
+    --ah-primary: #0b5fff;
+    --ah-primary-600: #084ed6;
+    --ah-accent: #00a86b;
+    --ah-surface: rgba(8, 10, 18, 0.62);
+    --ah-surface-2: rgba(255, 255, 255, 0.04);
+    --ah-border: rgba(255, 255, 255, 0.06);
+    --ah-text: #e6eef9;
+    --ah-muted: rgba(230, 238, 249, 0.6);
+    --ah-radius: 12px;
+}
+
+.card-grid {
+    display: grid;
+    gap: 1.25rem;
+    /* increased gap for more vertical breathing room */
+    padding: 1rem;
+    /* slightly larger padding */
+    max-width: 64em;
+    /* allow cards a bit more horizontal room so they wrap less tightly */
+    font-size: clamp(1rem, 0.95rem + 0.5vw, 1.15rem);
+}
+
+.magic-bento-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    aspect-ratio: 4/3;
+    min-height: 160px;
+    width: 100%;
+    padding: 1.1rem;
+    border-radius: 14px;
+    /* border: 1px solid var(--border-color-bento); */
+
+    background: rgba(255, 255, 255, 0.466);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    color: var(--white);
+    font-weight: 300;
+    overflow: hidden;
+    transition: all 0.28s ease;
+    --glow-x: 50%;
+    --glow-y: 50%;
+    --glow-intensity: 0;
+    --glow-radius: 200px;
+}
+
+.magic-bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35)
+}
+
+.magic-bento-card__header,
+.magic-bento-card__content {
+    display: flex;
+    position: relative
+}
+
+.magic-bento-card__header {
+    gap: 0.65rem;
+    justify-content: space-between
+}
+
+.magic-bento-card__content {
+    flex-direction: column
+}
+
+.magic-bento-card__label {
+    font-size: 14px;
+    opacity: 0.9
+}
+
+.magic-bento-card__title {
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin: 0 0 .25rem
+}
+
+.magic-bento-card__description {
+    font-size: 0.92rem;
+    opacity: 0.85
+}
+
+.magic-bento-card--text-autohide .magic-bento-card__title,
+.magic-bento-card--text-autohide .magic-bento-card__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+/* .magic-bento-card--text-autohide .magic-bento-card__title {
+    -webkit-line-clamp: 1
+}
+
+.magic-bento-card--text-autohide .magic-bento-card__description {
+    -webkit-line-clamp: 2 
+ } */
+
+@media (max-width:599px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0.5rem
+    }
+
+    .magic-bento-card {
+        min-height: 150px
+    }
+}
+
+@media (min-width:600px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media (min-width:1024px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
+/* border glow pseudo */
+.magic-bento-card--border-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 6px;
+    /* background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y), rgba(132, 0, 255, calc(var(--glow-intensity)*0.8)) 0%, rgba(132, 0, 255, calc(var(--glow-intensity)*0.4)) 30%, transparent 60%);
+    border-radius: inherit; */
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 1;
+    opacity: 0
+}
+
+.magic-bento-card--border-glow:hover::after {
+    opacity: 1
+}
+
+.particle-container {
+    position: relative;
+    overflow: hidden
+}
+
+.magic-bento-cta {
+    margin-top: .6rem;
+    display: flex;
+    gap: .5rem
+}
+
+.magic-bento-cta .btn.small {
+    padding: .45rem .75rem
+}
+
+/* ensure contrast on page: make cards stand out on light background */
+.academics-main {
+    background: transparent
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    color: #0f1724;
+}
+
+.academics-main {
+    padding: 2.5rem 0 4rem;
+    /* more top/bottom spacing so page doesn't look compressed */
+}
+
+.grid-hero {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 2rem;
+    /* larger gap between hero text and illustration */
+    align-items: center;
+    padding: 2rem 0;
+    /* increased vertical padding for the hero */
+}
+
+/* stacked layout: put text then illustration vertically centered */
+.academics-hero.stacked {
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+}
+
+.academics-hero.stacked .hero-left {
+    order: 1;
+}
+
+.academics-hero.stacked .hero-right {
+    order: 2;
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: center
+}
+
+.academics-hero.stacked .hero-left .hero-cta {
+    justify-content: center
+}
+
+.academics-hero.stacked .hero-left h1 {
+    margin-top: 0
+}
+
+.academics-hero.stacked .hero-panel {
+    max-width: 520px;
+    width: 92%;
+}
+
+.hero-left h1 {
+    margin: 0 0 .5rem;
+    /* more breathing space below heading */
+    font-size: 2.25rem;
+    /* slightly larger for clearer hierarchy */
+    color: var(--accent);
+}
+
+.hero-left .subtitle {
+    margin: 0 0 1.5rem;
+    /* increased gap under subtitle */
+    color: var(--muted);
+    max-width: 64ch;
+    /* allow slightly wider line length for readability */
+}
+
+.hero-cta {
+    display: flex;
+    gap: .75rem;
+    margin-top: 0.75rem
+}
+
+.btn {
+    display: inline-block;
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: #fff
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(11, 91, 255, 0.08)
+}
+
+.hero-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.section-heading {
+    color: white;
+    margin: 0 0 .25rem;
+    font-size: 1.25rem
+}
+
+.section-sub {
+    margin: 0 0 .75rem;
+    color: var(--muted)
+}
+
+.year-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    /* more space between year cards */
+}
+
+.year-card {
+    background: #fff;
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    /* increased padding for more vertical room inside card */
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 26px rgba(12, 24, 40, 0.08);
+    transition: transform .16s ease, box-shadow .16s ease;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    align-items: center;
+}
+
+.year-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(12, 24, 40, 0.12)
+}
+
+.year-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.25rem
+}
+
+.year-title {
+    font-weight: 700
+}
+
+.year-desc {
+    color: var(--muted);
+    font-size: .92rem
+}
+
+.year-card:focus {
+    outline: 3px solid rgba(11, 91, 255, 0.12);
+    outline-offset: 6px
+}
+
+/* Enhanced card layout */
+.year-card {
+    position: relative;
+    padding: 1.15rem;
+    overflow: hidden
+}
+
+.year-top {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    text-align: left
+}
+
+.year-info {
+    flex: 1
+}
+
+.year-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.35rem;
+    box-shadow: 0 8px 18px rgba(11, 91, 255, 0.06);
+}
+
+.year-title {
+    font-size: 1.05rem
+}
+
+.year-desc {
+    font-size: 0.95rem
+}
+
+.year-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: wrap
+}
+
+.meta-item {
+    background: rgba(15, 23, 36, 0.04);
+    padding: .25rem .5rem;
+    border-radius: 6px;
+    font-size: .85rem;
+    color: var(--muted)
+}
+
+.card-actions {
+    display: flex;
+    gap: .5rem;
+    margin-top: .75rem;
+    width: 100%;
+    justify-content: flex-start
+}
+
+.card-actions .btn.small {
+    padding: .5rem .75rem
+}
+
+/* Left accent stripe for the first three years */
+.year-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    border-top-left-radius: var(--card-radius);
+    border-bottom-left-radius: var(--card-radius);
+    opacity: 0.95;
+}
+
+.year-card.year-1::before {
+    background: linear-gradient(180deg, var(--accent), #2b6bff)
+}
+
+.year-card.year-2::before {
+    background: linear-gradient(180deg, #0b8eff, #00a0ff)
+}
+
+.year-card.year-3::before {
+    background: linear-gradient(180deg, #00a86b, #00c186)
+}
+
+/* -----------------------------
+   Academics visual polish
+   - Decorative background
+   - Hero improvements
+   - Card surface & CTA polish
+   - Responsive tweaks
+   ----------------------------- */
+
+/* Make the main area positioned so decorative bg can be absolute inside */
+.academics-main {
+    position: relative;
+    overflow: visible;
+}
+
+.academics-bg {
+    position: absolute;
+    inset: -6rem 0 -2rem 0;
+    /* allow background to extend above/below */
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(1200px 420px at 10% 20%, rgba(11, 95, 255, 0.06), transparent 12%),
+        radial-gradient(800px 300px at 90% 70%, rgba(0, 168, 107, 0.04), transparent 10%),
+        linear-gradient(180deg, rgba(247, 250, 252, 1) 0%, rgba(243, 247, 251, 1) 100%);
+    filter: blur(12px) saturate(1.05);
+    transform: translateZ(0);
+}
+
+/* Lift hero visually and ensure it sits above the decorative bg */
+.academics-hero,
+.card-grid,
+.courses-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.academics-hero.grid-hero {
+    padding: 2.5rem 0;
+    align-items: center;
+}
+
+.hero-left h1 {
+    font-size: clamp(1.9rem, 2.25rem + 1vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ah-primary-600);
+}
+
+.hero-left .subtitle {
+    font-size: clamp(.95rem, 1rem + .2vw, 1.05rem);
+    color: rgba(15, 23, 36, 0.75);
+}
+
+.hero-panel {
+    transform: translateY(-2%);
+    transition: transform .45s cubic-bezier(.2, .9, .2, 1), box-shadow .28s ease;
+    box-shadow: 0 18px 40px rgba(11, 18, 40, 0.06);
+}
+
+/* Note: intentionally no :has rules here for compatibility */
+
+/* Card grid tweaks */
+.card-grid.improved {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.magic-bento-card {
+    background: linear-gradient(180deg, rgba(6, 0, 16, 0.72), rgba(6, 0, 20, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.25rem;
+    transition: transform .28s cubic-bezier(.2, .9, .2, 1), box-shadow .28s ease, border-color .18s ease;
+}
+
+.magic-bento-card .card-icon svg {
+    width: 44px;
+    height: 44px
+}
+
+/* smooth icon motion on hover for a friendly micro-interaction */
+.magic-bento-card .card-icon {
+    transition: transform .28s cubic-bezier(.2, .9, .2, 1);
+}
+
+.magic-bento-card:hover .card-icon {
+    transform: translateY(-3px) rotate(-2deg);
+}
+
+.magic-bento-card:hover {
+    /* subtler hover: gentle lift, no scaling to avoid jumpy behavior */
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(6, 0, 16, 0.18);
+    --glow-intensity: 0.85;
+}
+
+.magic-bento-card__title {
+    font-size: 1.05rem;
+    color: var(--white);
+}
+
+.magic-bento-card__description {
+    color: rgba(230, 238, 249, 0.8);
+    font-size: .95rem
+}
+
+/* CTA buttons inside the Academics area */
+.hero-cta .btn.primary {
+    background: linear-gradient(180deg, var(--ah-primary), var(--ah-primary-600));
+    box-shadow: 0 8px 20px rgba(11, 91, 255, 0.14);
+}
+
+.hero-cta .btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px rgba(11, 91, 255, 0.18)
+}
+
+.card-actions .btn.primary,
+.card-cta.btn.primary {
+    padding: .5rem .78rem;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+/* Improve table readability in course lists */
+.year-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(15, 23, 36, 0.06);
+}
+
+.year-table thead th {
+    text-align: left;
+    padding: .85rem 1rem;
+    background: rgba(246, 249, 252, 0.6);
+}
+
+.year-table tbody td {
+    padding: .85rem 1rem;
+    border-top: 1px solid rgba(15, 23, 36, 0.04)
+}
+
+/* small screens: make hero tighter and stack cards fully */
+@media (max-width: 680px) {
+    .grid-hero {
+        gap: 1rem
+    }
+
+    .hero-panel {
+        transform: none;
+        box-shadow: none
+    }
+
+    .card-grid.improved {
+        gap: 1rem
+    }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .magic-bento-card,
+    .hero-panel,
+    .btn {
+        transition: none !important
+    }
+}
+
+/* subtle entrance animation for lists */
+.card-grid.improved>a,
+.card-grid.improved>.magic-bento-card {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: ah-fade-in .45s forwards ease;
+}
+
+.card-grid.improved>a:nth-child(1) {
+    animation-delay: .06s
+}
+
+.card-grid.improved>a:nth-child(2) {
+    animation-delay: .12s
+}
+
+.card-grid.improved>a:nth-child(3) {
+    animation-delay: .18s
+}
+
+.card-grid.improved>a:nth-child(4) {
+    animation-delay: .24s
+}
+
+@keyframes ah-fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+/* ensure site-footer sits visually distinct */
+.site-footer {
+    margin-top: 3.5rem;
+}
+
+
+.year-card.year-4::before {
+    display: none
+}
+
+/* Make 1-3 slightly more prominent */
+.year-card.year-1,
+.year-card.year-2,
+.year-card.year-3 {
+    transform: translateZ(0)
+}
+
+.year-card:hover {
+    /* calmer year-card hover for 1/2/3 — gentle lift and softer shadow */
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(12, 24, 40, 0.12);
+}
+
+.year-card.year-1 .year-icon {
+    background: linear-gradient(135deg, var(--accent), #2b6bff);
+}
+
+.year-card.year-2 .year-icon {
+    background: linear-gradient(135deg, #0b8eff, #00a0ff);
+}
+
+.year-card.year-3 .year-icon {
+    background: linear-gradient(135deg, #00a86b, #00c186);
+}
+
+.year-card.year-4 .year-icon {
+    background: linear-gradient(135deg, #ff7a00, #ff9b3d);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: .5rem
+}
+
+.resource-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    box-shadow: 0 8px 18px rgba(12, 24, 40, 0.06)
+}
+
+.resource-icon {
+    font-size: 1.45rem;
+    color: var(--accent)
+}
+
+.resource-title {
+    font-weight: 600
+}
+
+.resource-desc {
+    color: var(--muted);
+    font-size: .92rem
+}
+
+.announcements-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.announcements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: .75rem
+}
+
+.announcement-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(12, 24, 40, 0.06)
+}
+
+.announcement-card h3 {
+    margin: 0 0 .25rem
+}
+
+.announce-text {
+    color: var(--muted)
+}
+
+.muted {
+    color: var(--muted);
+    font-size: .9rem
+}
+
+/* Responsive tweaks */
+@media (max-width:880px) {
+    .grid-hero {
+        grid-template-columns: 1fr;
+        text-align: center
+    }
+
+    .hero-right {
+        order: -1
+    }
+}
+
+@media (max-width:520px) {
+    .year-options {
+        gap: .6rem
+    }
+
+    .resource-card {
+        flex-direction: row;
+        align-items: center
+    }
+}
+
+/* Year page specific styles */
+.year-page {
+    padding: 2rem 0 4rem
+}
+
+.year-header {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 1rem
+}
+
+.year-header .breadcrumb {
+    color: var(--muted);
+    font-size: .95rem
+}
+
+.year-header h1 {
+    margin: 0;
+    font-size: 1.6rem
+}
+
+.courses-wrap {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1rem;
+}
+
+.courses-main {
+    background: transparent
+}
+
+.courses-aside {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(12, 24, 40, 0.06)
+}
+
+.year-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem
+}
+
+.year-table th,
+.year-table td {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid #eef2f6
+}
+
+.year-table th {
+    font-weight: 600;
+    color: var(--muted);
+    font-size: .95rem
+}
+
+/* Page polish overrides: background, animations, CTA styling */
+.academics-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(1200px 600px at 90% 10%, rgba(11, 91, 255, 0.08), transparent 12%),
+        radial-gradient(800px 400px at 10% 80%, rgba(0, 168, 107, 0.04), transparent 8%);
+}
+
+.academics-main {
+    position: relative;
+    z-index: 1
+}
+
+.academics-selection .magic-bento-card {
+    background: var(--ah-surface);
+    border: 1px solid var(--ah-border);
+    color: var(--ah-text);
+    backdrop-filter: blur(6px);
+}
+
+.academics-selection .card-icon {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+}
+
+.academics-selection .card-actions {
+    margin-top: .9rem;
+    display: flex;
+    justify-content: flex-start
+}
+
+.academics-selection .card-cta.btn {
+    padding: .46rem .8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center
+}
+
+.academics-selection .card-cta.btn.primary {
+    background: var(--ah-primary);
+    color: #fff
+}
+
+/* entrance animation and stagger */
+.card-grid.improved .magic-bento-card {
+    opacity: 0;
+    transform: translateY(6px);
+    /* slightly smaller initial offset */
+    animation: fadeUp .34s var(--delay, 0ms) cubic-bezier(.2, .9, .2, 1) both;
+}
+
+.card-grid.improved .magic-bento-card:nth-child(1) {
+    --delay: 40ms
+}
+
+.card-grid.improved .magic-bento-card:nth-child(2) {
+    --delay: 120ms
+}
+
+.card-grid.improved .magic-bento-card:nth-child(3) {
+    --delay: 200ms
+}
+
+.card-grid.improved .magic-bento-card:nth-child(4) {
+    --delay: 280ms
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card-grid.improved .magic-bento-card {
+        animation: none;
+        opacity: 1;
+        transform: none
+    }
+}
+
+.hero-left h1 {
+    font-size: 2.25rem;
+    color: var(--ah-primary)
+}
+
+.hero-left .subtitle {
+    color: var(--ah-muted);
+    font-size: 1rem;
+    max-width: 48ch
+}
+
+/* --- Quick UI fixes for Academics card layout (overrides) --- */
+.academics-selection .card-grid.improved {
+    max-width: 80rem;
+    margin: 0 auto;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+/* keep compact 2-column layout on medium+ screens */
+@media (min-width:600px) {
+    .academics-selection .card-grid.improved {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width:1024px) {
+    .academics-selection .card-grid.improved {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.academics-selection .magic-bento-card {
+    background: rgba(255, 255, 255, 0.158);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.474);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    min-height: 130px;
+    aspect-ratio: auto;
+    align-items: flex-start;
+}
+
+.academics-selection .magic-bento-card .card-top {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start
+}
+
+.academics-selection .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    flex: 0 0 56px
+}
+
+.academics-selection .card-info {
+    flex: 1
+}
+
+.academics-selection .magic-bento-card__title {
+    font-size: 1.05rem;
+    margin: 0 0 .35rem;
+    color: #e6eef9
+}
+
+.academics-selection .magic-bento-card__description {
+    font-size: .95rem;
+    margin: 0;
+    color: rgba(230, 238, 249, 0.78)
+}
+
+.academics-selection .magic-bento-card__label {
+    font-size: .78rem;
+    color: rgba(230, 238, 249, 0.6);
+    margin-bottom: 0.25rem
+}
+
+.academics-selection .card-actions {
+    margin-top: .9rem;
+    display: flex;
+    justify-content: flex-start
+}
+
+.academics-selection .card-cta.btn {
+    padding: .5rem .9rem;
+    border-radius: 8px;
+    font-weight: 600
+}
+
+/* Make the whole card keyboard-focusable with visible outline */
+.magic-bento-card:focus-visible {
+    outline: 3px solid rgba(11, 91, 255, 0.16);
+    outline-offset: 6px
+}
+
+/* Slight lift on hover for polish */
+.academics-selection .magic-bento-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 50px rgba(2, 6, 23, 0.45)
+}
+
+/* Ensure CTA stands out on dark panel */
+.academics-selection .card-cta.btn.primary {
+    background: var(--accent);
+    color: #fff
+}
+
+/* small screens: single column and slightly larger text for readability */
+@media (max-width:599px) {
+    .academics-selection .card-grid.improved {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+
+    .academics-selection .magic-bento-card__title {
+        font-size: 1.15rem
+    }
+}
+
+/* utility: screen-reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0
+}
+
+.course-row {
+    transition: background .12s ease
+}
+
+.course-row:hover {
+    background: linear-gradient(90deg, rgba(11, 91, 255, 0.03), transparent)
+}
+
+.course-badge {
+    display: inline-block;
+    padding: .35rem .5rem;
+    background: rgba(11, 91, 255, 0.08);
+    color: var(--accent);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: .85rem
+}
+
+/* Card layout for small screens */
+@media (max-width:880px) {
+    .courses-wrap {
+        grid-template-columns: 1fr
+    }
+
+    .courses-aside {
+        order: 2
+    }
+}
+
+/* Tweak buttons on year pages */
+.year-actions {
+    display: flex;
+    gap: .6rem;
+    margin-top: .5rem
+}
+
+.btn.small {
+    padding: .4rem .6rem;
+    border-radius: 8px;
+    font-size: .95rem
+}

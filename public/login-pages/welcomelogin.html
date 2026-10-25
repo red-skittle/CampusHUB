@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB</title>
+    <link rel="stylesheet" href="welcomelogin.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="modal-page-body">
+    <div class="back-btn">
+        <a href="../"><button>Back to homepage </button></a>
+    </div>
+    <div class="modal-backdrop">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="login-switch-group">
+                    <a href="#" class="login-switch active">Log in</a>
+                    <span>or</span>
+                    <a href="../create-account/" class="login-switch">Sign up</a>
+                </div>
+                <!-- <a href="/index.html"><button class="close-btn"><i class="ph-bold ph-x"></i></button></a> -->
+            </div>
+
+            <h2 class="modal-title">Welcome to CampusHUB</h2>
+
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="userEmail">Username</label>
+                    <input type="input" id="userEmail" placeholder="Enter Mail"> <span>@muj.manipal.edu</span>
+                </div>
+
+                <div class="form-group" id="pass-group">
+                    <label for="userPassword">Password</label>
+                    <input type="password" id="userPassword" placeholder="Enter Password">
+                    <button type="button" id="togglePassword" class="toggle-btn"><img
+                            src="../images/showPass.png"></button>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" class="custom-checkbox" required>
+                    <label for="terms">By logging in, I agree and accept the Terms of Service</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" class="custom-checkbox">
+                    <label for="remember">Remember this device for 30 days</label>
+                </div>
+
+                <div class="login-buttons">
+                    <button type="submit" class="btn btn-login">Log in</button>
+                    <a href="../create-account/index.html">
+                        <button type="button" class="btn btn-create-account">Create an Account</button>
+                    </a>
+                </div>
+
+                <div id="messageContainer"></div>
+
+                <div class="bottom-links">
+                    <a href="../forgot-pass/forgot.html" class="forgot-password">Forgot Password?</a>
+                    <a href="./adminlogin.html" class="admin-portal">Admin Portal</a>
+                </div>
+
+                <!-- Message container (added for feedback) -->
+                <div id="messageContainer"></div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./welcomelogin.js"></script>
+</body>
+
+</html>

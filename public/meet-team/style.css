@@ -1,0 +1,336 @@
+/* --- CSS Reset & Base Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* background: url(/public/images/meet-our-team.jpg);
+    background-size: cover;
+    background-position: fixed; */
+    /* background-repeat: no-repeat; */
+
+    /* Dark background with a radial gradient as seen in the image */
+    background-color: #0a001f;
+    background-image: radial-gradient(ellipse at 50% 20%, #2a0a4a, #0a001f 70%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+/* --- Vertical Background Text --- */
+.vertical-text {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    /* Makes text vertical */
+    transform: rotate(180deg);
+
+
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: rgba(108, 56, 192, 0.316);
+    font-style: italic;
+    /* Very subtle text color */
+    z-index: 0;
+    /* Behind the content */
+    user-select: none;
+    /* Not selectable */
+}
+
+
+.vertical-text-left {
+    left: 20px;
+}
+
+.vertical-text-right {
+    right: 20px;
+}
+
+/* --- Main Content Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    /* Needed to stay on top of the vertical text */
+    z-index: 1;
+}
+
+/* --- Header --- */
+header {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- Team Sections --- */
+.team-section {
+    margin-bottom: 4rem;
+}
+
+.team-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.working-team {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+
+/* --- Team Grid --- */
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* --- Team Member Card --- */
+.team-card {
+    width: 250px;
+    /* Width from your screenshot */
+    height: 400px;
+
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #8d68d5 100%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Pushes content to the bottom */
+
+    padding: 0;
+    /* Padding inside the card for the text */
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    /* Align text to the left */
+    position: relative;
+    /* For potential future image overlay or more complex design */
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.second-row {
+    margin-top: 2rem;
+}
+
+.card-info {
+    /* No longer needs flex-grow or extensive padding as the card handles it */
+    padding: 1.5rem;
+    flex-shrink: 0;
+    /* Reset padding as it's now on the card */
+}
+
+.card-image-placeholder img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-image-placeholder {
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    font-size: 1.4rem;
+    /* Larger font size for the name */
+    font-weight: 700;
+    /* Bolder font weight */
+    margin-bottom: 0.2rem;
+    /* Reduced margin */
+    color: #ffffff;
+    /* White text for name */
+}
+
+.card-info p {
+    font-size: 1.1rem;
+    /* Larger font size for the title */
+    color: rgba(255, 255, 255, 0.8);
+    /* Slightly less opaque for the title */
+}
+
+/* --- Footer --- */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+    gap: 1rem;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4rem;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-left a[aria-label="CampusHub Home"] {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+.footer-right {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-right a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+    color: #fff;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .vertical-text {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+
+    .vertical-text-left {
+        left: 5px;
+    }
+
+    .vertical-text-right {
+        right: 5px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .team-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .team-card {
+        width: 100%;
+        /* Make cards full width on smaller screens */
+        max-width: 300px;
+        /* Optional: cap maximum width if desired */
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-left {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Hides menu links: Events, Food, etc. */
+    }
+
+    .search-bar {
+        display: none;
+        /* Hides desktop search bar */
+    }
+
+    .mobile-search-icon {
+        display: inline-block;
+        /* Shows mobile search icon */
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 580px) {
+    .nav-auth {
+        display: none;
+        /* Hides "Sign up" and "Log in" buttons */
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    nav {
+        gap: 0rem;
+        padding: 0;
+        /* Ensure no extra padding */
+    }
+
+    .nav-right {
+        margin-left: auto;
+        /* This pushes all icons to the far right */
+        gap: 15px;
+        /* Adjust space between icons */
+    }
+}

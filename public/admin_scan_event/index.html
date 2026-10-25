@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Event Check-In Scanner</title>
+    <link rel="stylesheet" href="admin-scanner.css">
+    <link rel="stylesheet" href="../nav-bar/nav.css">
+    <link rel="stylesheet" href="../mobile-nav/mobile-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button class="back-btn" onclick="window.history.back()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+            <h1>🎫 Event Check-In Scanner</h1>
+            <div class="user-info" id="userInfo">Loading...</div>
+        </div>
+
+        <!-- Event Selector -->
+        <div class="event-selector">
+            <label for="eventSelect">📅 Select Event:</label>
+            <select id="eventSelect" onchange="onEventChange()">
+                <option value="">-- Select an event --</option>
+            </select>
+        </div>
+
+        <!-- Scanner Container -->
+        <div class="scanner-container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading camera...</p>
+            </div>
+
+            <div class="video-container hidden" id="videoContainer">
+                <video id="video" autoplay playsinline></video>
+                <div class="scanner-overlay"></div>
+                <div class="scanner-corners">
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+                </div>
+            </div>
+
+            <canvas id="canvas"></canvas>
+
+            <div class="controls">
+                <button class="btn btn-primary" id="startBtn" onclick="startScanning()">
+                    📷 Start Camera
+                </button>
+                <button class="btn btn-danger hidden" id="stopBtn" onclick="stopScanning()">
+                    ⏹️ Stop Camera
+                </button>
+            </div>
+
+            <div class="status-message" id="statusMessage"></div>
+
+            <!-- Stats -->
+            <div class="stats" id="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="successScans">0</div>
+                    <div class="stat-label">✅ Successful</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="duplicateScans">0</div>
+                    <div class="stat-label">⚠️ Duplicates</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+    <!-- QR Code Scanner Library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+
+    <!-- Crypto Utils -->
+    <script src="crypto-utils.js"></script>
+
+    <!-- Main Scanner Script -->
+    <script src="admin-scanner.js"></script>
+
+    <!-- Navbar Loader -->
+    <script src="../nav-bar/nav.js"></script>
+    <script src="../mobile-nav/mobile-nav.js"></script>
+    <script>
+        // Load Navbar
+        fetch('../nav-bar/nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initializeNavbar === 'function') {
+                    initializeNavbar();
+                }
+            });
+    </script>
+</body>
+</html>

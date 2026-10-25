@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Your Account</title>
+  <link rel="stylesheet" href="create-account.css">
+  <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+</head>
+
+<body>
+
+  <div class="aspect-container">
+    <div class="content">
+      <div class="back-btn">
+        <a href="../"><button>Back to homepage </button></a>
+      </div>
+      <div class="left">
+        <h1>Create Your Account</h1>
+        <p>Join the MUJ campus ecosystem — one account, endless possibilities.</p>
+      </div>
+      <div class="right">
+        <form id="signupForm" autocomplete="off">
+          <h2>Sign Up for CampusHUB</h2>
+
+          <div id="messageContainer"></div>
+
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Name" required />
+
+          <label for="email">MUJ Email</label>
+          <input id="email" name="email" type="email" placeholder="your.name@muj.manipal.edu" required />
+
+          <label for="password">Password</label>
+          <div class="password-container">
+            <input type="password" placeholder="Password (min. 6 characters)" name="password" id="password" required
+              minlength="6">
+            <div id="passwordStrength" class="password-strength"></div>
+          </div>
+
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword" required>
+
+          <label for="mobile">Mobile No.</label>
+          <input id="mobile" name="mobile" type="tel" placeholder="Mobile No." pattern="[0-9]{10,}" required />
+
+          <label for="dob">Date of Birth</label>
+          <input id="dob" name="dob" type="date" placeholder="Date of Birth" required />
+
+          <label for="block">Block No.</label>
+          <input id="block" name="block" type="text" placeholder="Block No." required />
+
+          <label for="room">Room No.</label>
+          <input id="room" name="room" type="text" placeholder="Room No." required />
+
+          <button type="submit" id="submitBtn" class="submitBtn">Create Account &rsaquo;</button>
+
+          <div class="login-link">
+            Already have an account? <a href="../login-pages/welcomelogin.html">Log in</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK v9 (modular) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBvIrk1TWKjOumhNJFeMafBry8151eB3Gw",
+      authDomain: "campushub-muj2.firebaseapp.com",
+      projectId: "campushub-muj2",
+      storageBucket: "campushub-muj2.firebasestorage.app",
+      messagingSenderId: "1041313599870",
+      appId: "1:1041313599870:web:039738bd5602fbf643e32f",
+      measurementId: "G-QSSJ1KVLMK"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Form Elements
+    const form = document.getElementById('signupForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const messageContainer = document.getElementById('messageContainer');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const passwordStrength = document.getElementById('passwordStrength');
+
+    // Password Strength Checker
+    passwordInput.addEventListener('input', function () {
+      const password = this.value;
+      const strength = checkPasswordStrength(password);
+
+      if (password.length === 0) {
+        passwordStrength.textContent = '';
+        return;
+      }
+
+      if (strength.score < 2) {
+        passwordStrength.textContent = '⚠ Weak password';
+        passwordStrength.className = 'password-strength strength-weak';
+      } else if (strength.score < 4) {
+        passwordStrength.textContent = '✓ Medium password';
+        passwordStrength.className = 'password-strength strength-medium';
+      } else {
+        passwordStrength.textContent = '✓ Strong password';
+        passwordStrength.className = 'password-strength strength-strong';
+      }
+    });
+
+    function checkPasswordStrength(password) {
+      let score = 0;
+      if (password.length >= 8) score++;
+      if (password.length >= 12) score++;
+      if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
+      if (/\d/.test(password)) score++;
+      if (/[^a-zA-Z0-9]/.test(password)) score++;
+      return { score };
+    }
+
+    // Show Message Function
+    function showMessage(message, type = 'error') {
+      messageContainer.innerHTML = `<div class="${type}-message message">${message}</div>`;
+      messageContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      if (type === 'success') {
+        setTimeout(() => {
+          messageContainer.innerHTML = '';
+        }, 5000);
+      }
+    }
+
+    // Clear Message Function
+    function clearMessage() {
+      messageContainer.innerHTML = '';
+    }
+
+    // Form Submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMessage();
+
+      // Get form values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = passwordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
+      const mobile = document.getElementById('mobile').value.trim();
+      const dob = document.getElementById('dob').value;
+      const block = document.getElementById('block').value.trim();
+      const room = document.getElementById('room').value.trim();
+
+      // Validation
+      if (password !== confirmPassword) {
+        showMessage('Passwords do not match', 'error');
+        return;
+      }
+
+      if (password.length < 6) {
+        showMessage('Password must be at least 6 characters long', 'error');
+        return;
+      }
+
+      // Validate MUJ email
+      if (!email.toLowerCase().endsWith('@muj.manipal.edu')) {
+        showMessage('Please use your MUJ email address (@muj.manipal.edu)', 'error');
+        return;
+      }
+
+      // Validate mobile number
+      if (!/^\d{10,}$/.test(mobile)) {
+        showMessage('Please enter a valid 10-digit mobile number', 'error');
+        return;
+      }
+
+      // Show loading state
+      submitBtn.textContent = 'Creating Account...';
+      submitBtn.disabled = true;
+
+      try {
+        // Create user with Firebase Auth
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log('User created in Auth:', user.uid);
+
+        // Update user profile with name
+        await updateProfile(user, {
+          displayName: name
+        });
+
+
+        // Send email verification
+        try {
+          await sendEmailVerification(user);
+        } catch (emailError) {
+          console.log(emailError);
+        }
+
+        // Save additional user data to Firestore
+        try {
+          await setDoc(doc(db, 'users', user.uid), {
+            name: name,
+            email: email,
+            mobile: mobile,
+            dateOfBirth: dob,
+            block: block,
+            room: room,
+            createdAt: serverTimestamp(),
+            emailVerified: false
+          });
+          console.log('User data saved to Firestore');
+        } catch (firestoreError) {
+        }
+
+        showMessage('Account created successfully!', 'success');
+
+        // Redirect after 2 seconds
+        setTimeout(() => {
+          window.location.href = '../index.html';
+        }, 2000);
+
+      } catch (error) {
+        console.error('Sign up error:', error);
+        console.error('Error code:', error.code);
+        console.error('Error message:', error.message);
+
+        let errorMessage = 'Failed to create account. Please try again.';
+
+        // Check if error is from Firestore
+        if (error.code && error.code.includes('permission-denied')) {
+          errorMessage = 'Database permission error. Please contact administrator.';
+        } else {
+          switch (error.code) {
+            case 'auth/email-already-in-use':
+              errorMessage = 'This email is already registered. Please log in instead.';
+              break;
+            case 'auth/invalid-email':
+              errorMessage = 'Invalid email address format.';
+              break;
+            case 'auth/operation-not-allowed':
+              errorMessage = 'Email/password sign up is not enabled.';
+              break;
+            case 'auth/weak-password':
+              errorMessage = 'Password is too weak. Please use a stronger password.';
+              break;
+            case 'auth/network-request-failed':
+              errorMessage = 'Network error. Please check your connection.';
+              break;
+            default:
+              errorMessage = `Error: ${error.message}`;
+          }
+        }
+
+        showMessage(errorMessage, 'error');
+
+      } finally {
+        submitBtn.textContent = 'Create Account ›';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+
+</html>

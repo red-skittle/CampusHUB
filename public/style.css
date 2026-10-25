@@ -1,0 +1,1139 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+    --primary-purple: #8A2BE2;
+    --light-purple: #a78bfa;
+    --dark-bg: #0C002B;
+    --text-primary: #ffffff;
+    --text-secondary: rgb(255, 255, 255);
+    /* A light grey for subtitles */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #030014;
+    background: url(images/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- HEADER & NAVIGATION --- */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 1rem 2rem;
+    margin-bottom: 40px;
+}
+
+header {
+    width: 100%;
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    /* justify-content: space-between */
+    align-items: center;
+    gap: 2rem;
+}
+
+
+
+.logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-auth {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Use the same gap as your nav-auth */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--text-primary);
+}
+
+.search-bar {
+    display: flex;
+    border: 1px solid rgb(164, 160, 237);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    padding: 12px 15px;
+    width: 350px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+.fa-heart {
+    font-size: 1.7rem;
+}
+
+/* This is the new mobile-only search icon */
+.mobile-search-icon {
+    display: none;
+    /* Hidden on desktop by default */
+}
+
+/* * This is the "active" state for the search bar on mobile.
+ * It makes it appear as an overlay.
+*/
+.search-bar.mobile-active {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    /* Adjust this to sit below your header */
+    left: 5%;
+    /* Center it with 5% margin on left/right */
+    width: 90%;
+    z-index: 1001;
+    background: #030014;
+    /* Give it a solid background to match your site */
+    border: 1px solid rgb(164, 160, 237);
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/*
+ * STYLES FOR THE WISHLIST CONTAINER
+ * -- ANIMATION ADDITIONS HERE --
+ */
+
+#wishlist-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 25px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-out;
+    visibility: hidden;
+    overflow-y: auto;
+}
+
+#wishlist-container.show {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+#wishlist-container h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+#wishlist-container>p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Existing styles for the 'X' close button */
+#close-wishlist {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+#close-wishlist:hover {
+    color: #fff;
+}
+
+.profile-dropdown {
+    position: relative;
+
+
+    /*TO HIDE WHEN NOT LOGGED IN , OG VALUE INLINE-BLOCK*/
+
+    display: none;
+}
+
+/* The circular profile icon button */
+.profile-icon-btn {
+
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* The dropdown menu itself */
+.dropdown-menu {
+    position: absolute;
+    top: 55px;
+    /* Position below the icon */
+    right: 0;
+    min-width: 300px;
+    border-radius: 12px;
+    padding: 1rem;
+    z-index: 1000;
+
+    /* --- The Glassmorphism Effect --- */
+    background: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent background */
+    backdrop-filter: blur(15px);
+    /* The most important part: the blur */
+    -webkit-backdrop-filter: blur(15px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    /* --- Hide by default --- */
+    /* Use opacity and visibility for transitions */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+/* --- The ".show" class (added by JavaScript) --- */
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* --- Menu Internals --- */
+.menu-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.menu-header .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.menu-header .user-info {
+    flex-grow: 1;
+}
+
+.menu-header .user-info strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.menu-header .user-info span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.menu-header .edit-icon {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu ul li a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-menu hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0.75rem 0;
+}
+
+.log-in {
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.log-in:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- MAIN HERO SECTION --- */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.tag-line h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    max-width: 800px;
+    min-height: 12.6rem;
+    color: white;
+    text-decoration: none;
+}
+
+
+.subtitle {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    max-width: 800px;
+    line-height: 1.6;
+    color: rgb(191, 187, 187);
+    text-align: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.getting-started {
+    /* --- Setup for the effect --- */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    /* --- Initial State (No Hover) --- */
+    background-color: #3e0ead;
+    border: 2px solid #3e0ead;
+    box-shadow: 0 0 15px rgba(73, 43, 226, 0.5);
+    color: #ffffff;
+
+    /* --- Transitions --- */
+    transition: color 0.55s ease-out,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    /* --- Other styles for appearance --- */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    /* font-family: Arial, sans-serif; */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* This is the "wavy" layer */
+.getting-started::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: #ffffff;
+
+
+    transform: scaleX(0);
+
+
+    transform-origin: right;
+    transition: transform 0.55s cubic-bezier(0.83, 0, 0.17, 1);
+
+    z-index: -1;
+
+}
+
+/* --- HOVER STATE --- */
+
+.getting-started:hover {
+    /* Your original hover styles */
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(80, 43, 226, 0.8);
+
+    /* New hover color for the text */
+    color: #3e0ead;
+}
+
+/* This triggers the "wavy" ::before element to animate */
+.getting-started:hover::before {
+    /* Scale to 100% width */
+    transform: scaleX(1);
+
+    /* --- CHANGED --- */
+    /* Animation starts from the left on mouse-in */
+    transform-origin: left;
+}
+
+.food {
+    /* --- Setup for the effect --- */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    /* --- Initial State (No Hover) --- */
+    background-color: #b90d0d;
+    border: 2px solid #b90d0d;
+    box-shadow: 0 0 15px rgba(226, 43, 43, 0.5);
+    color: #ffffff;
+
+    /* --- Transitions --- */
+    transition: color 0.55s ease-out,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    /* --- Other styles for appearance --- */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    /* font-family: Arial, sans-serif; */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* This is the "wavy"dsnad layer */
+.food::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: #ffffff;
+
+    /* Initial state: scaled to 0 width (invisible) */
+    transform: scaleX(0);
+
+    /* --- CHANGED --- */
+    /* Animation starts from the right on mouse-out */
+    transform-origin: right;
+
+    /* Animation for the wipe */
+    transition: transform 0.55s cubic-bezier(0.83, 0, 0.17, 1);
+
+    z-index: -1;
+    /* Place it *behind* the text and icon */
+}
+
+/* --- HOVER STATE --- */
+
+.food:hover {
+    /* Your original hover styles */
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(226, 43, 46, 0.8);
+
+    /* New hover color for the text */
+    color: #b90d0d;
+}
+
+/* This triggers the "wavy" ::before element to animate */
+.food:hover::before {
+    /* Scale to 100% width */
+    transform: scaleX(1);
+
+    /* --- CHANGED --- */
+    /* Animation starts from the left on mouse-in */
+    transform-origin: left;
+}
+
+
+.learn-more {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.learn-more:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- FEATURES SECTION --- */
+.features {
+    margin-top: 2rem;
+}
+
+.features ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features i {
+    font-size: 1.2rem;
+}
+
+
+.cursor {
+    display: inline-block;
+    width: 4px;
+    background-color: var(--text-primary);
+    /* Uses your CSS variable! */
+    height: 3.5rem;
+    /* Matches your h1 font-size */
+    vertical-align: bottom;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* The fade-in effect for the other content */
+.fade-in-on-load {
+    opacity: 0;
+    /* Start hidden */
+    transform: translateY(10px);
+    animation: fadeIn 1s ease-out forwards;
+
+    /* This delay is timed to start *after* the typing animation finishes */
+    animation-delay: 3.0s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- UPCOMING EVENTS SECTION --- */
+.upcoming-events-section {
+    padding: 10rem 0;
+    text-align: center;
+}
+
+.upcoming-events-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.events-carousel {
+    position: relative;
+    padding: 60px 0;
+    /* increased from 40px */
+    height: 400px;
+    overflow: visible;
+    /* allow hover pop-out without scrollbars */
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================
+   SAVED EVENTS SIDEBAR STYLES
+   ======================== */
+
+.saved-events-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.saved-events-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.saved-events-list::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+
+.saved-events-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.saved-events-list::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+.saved-event-card {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.saved-event-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(-3px);
+    border-color: var(--primary-purple);
+}
+
+.saved-event-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.saved-event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.saved-event-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.saved-event-info h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.saved-event-club {
+    font-size: 12px;
+    color: var(--light-purple);
+    margin: 0;
+    font-weight: 500;
+}
+
+.saved-event-date,
+.saved-event-venue {
+    font-size: 12px;
+    color: #ccc;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.saved-event-date i,
+.saved-event-venue i {
+    font-size: 11px;
+    color: var(--light-purple);
+}
+
+.saved-event-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-saved-btn,
+.view-event-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.remove-saved-btn {
+    background: rgba(220, 53, 69, 0.1);
+    color: #ff4757;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.remove-saved-btn:hover {
+    background: #dc3545;
+    color: white;
+    transform: scale(1.1);
+}
+
+.view-event-btn {
+    background: rgba(138, 43, 226, 0.2);
+    color: var(--light-purple);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.view-event-btn:hover {
+    background: var(--primary-purple);
+    color: white;
+    transform: scale(1.1);
+}
+
+.empty-wishlist {
+    text-align: center;
+    padding: 60px 20px;
+    color: #aaa;
+}
+
+.empty-wishlist i {
+    font-size: 64px;
+    color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.empty-wishlist p {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.empty-wishlist .small-text {
+    font-size: 13px;
+    color: #888;
+}
+
+.empty-wishlist .login-btn,
+.empty-wishlist .browse-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: var(--primary-purple);
+    color: white;
+}
+
+.scroll-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.scroll-left {
+    left: -20px;
+}
+
+.scroll-right {
+    right: -20px;
+}
+
+/* --- UNIFORM EVENT CARDS --- */
+.events-container {
+    display: flex;
+    gap: 20px;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* <--- prevents vertical growth or scroll */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 20px 0;
+    /* adds breathing space for hover scale */
+    position: relative;
+    /* for stacking context */
+}
+
+.events-container::-webkit-scrollbar {
+    display: none;
+}
+
+.event-card {
+    flex: 0 0 250px;
+    height: 380px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.event-card:hover {
+    z-index: 5;
+    /* Bring to front so it doesn't get cut off */
+    transform: scale(1.05);
+}
+
+.event-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.event-details {
+    flex-grow: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-date {
+    font-size: 0.875rem;
+    color: var(--light-purple);
+    margin-bottom: 0.5rem;
+}
+
+.event-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.event-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+
+    /* body{
+
+        margin: 1rem;
+    } */
+
+    .container {
+        padding: 1rem;
+    }
+
+
+    #navbar-placeholder {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    /* 2. Show the new mobile search icon */
+    .mobile-search-icon {
+        display: inline-block;
+        /* Make the icon visible */
+    }
+
+
+    .tag-line h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .features ul {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .scroll-left {
+        left: 5px;
+    }
+
+    .scroll-right {
+        right: 5px;
+    }
+}
+
+@media (max-width: 580px) {
+    .signup {
+        display: none;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    header * {
+        font-size: 1rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+
+    }
+
+    nav {
+        gap: 0rem;
+    }
+
+    .nav-right {
+        margin-left: auto;
+        gap: 10px;
+
+    }
+
+    .container {
+        padding-inline: 5;
+    }
+
+    ;
+
+
+
+
+}
+
+@media (max-width: 580px) {
+    #wishlist-trigger {
+        display: none;
+    }
+
+    /* Make wishlist container full width on mobile */
+    #wishlist-container {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .saved-event-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .saved-event-info h4 {
+        font-size: 14px;
+    }
+
+    .saved-event-club,
+    .saved-event-date,
+    .saved-event-venue {
+        font-size: 11px;
+    }
+
+    .remove-saved-btn,
+    .view-event-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 580px) {
+    #wishlist-trigger {
+        display: none;
+    }
+}
+
+/* --- NEWS TICKER --- */
+.news-ticker {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+}
+
+.news-ticker .ticker-track {
+    display: flex;
+    gap: 2.25rem;
+    white-space: nowrap;
+    align-items: center;
+    padding: 0.6rem 2rem;
+}
+
+.news-ticker .ticker-item {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    font-size: 0.98rem;
+    opacity: 0.98;
+}
+
+/* animation applied by JS: uses --ticker-duration */
+.news-ticker .ticker-track.scrolling {
+    animation: ticker-move var(--ticker-duration, 18s) linear infinite;
+}
+
+@keyframes ticker-move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* small screens */
+@media (max-width:520px) {
+    .news-ticker .ticker-item {
+        font-size: 0.92rem
+    }
+
+    .news-ticker .ticker-track {
+        padding: 0.5rem 1rem
+    }
+}

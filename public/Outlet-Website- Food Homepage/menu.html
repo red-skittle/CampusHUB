@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - CampusHUB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="Icon" href="https://placehold.co/32x32/E62727/ffffff?text=C">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Archivo+Black&display=swap"
+        rel="stylesheet">
+
+    <script type="module" src="menu.js" defer></script>
+    <script type="module" src="../firebase-config.js"></script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="HomePage.html" class="logo">
+                <img src="https://placehold.co/32x32/E62727/ffffff?text=C" alt="CampusHUB Logo">
+                <span>CampusHUB</span></a>
+            <nav class="main-nav">
+                <form id="header-search-form" class="search-bar">
+                    <input type="text" id="header-search-input" placeholder="Enter item or outlet...">
+                    <button type="submit" aria-label="Search"><img src="assets/search.png" alt="Search Icon"
+                            style="width: 23px;"></button>
+                </form>
+                <div class="cart-link-container">
+                    <a href="#" class="profile-link" aria-label="User Profile" id="js-cartlink"><img
+                            src="assets/shopping-bag.png" alt="Profile Icon" style="width: 23px;"></a>
+
+                    <div class="cart-link-dropdown">
+                        <a href="checkout.html"></a> <button id="sign-out-btn2" class="btn btn-dark btn-small">cart</button>
+                    </div>
+
+                </div>
+
+                <div id="profile-container" class="profile-container hidden">
+                    <a href="#" id="profile-icon" class="profile-link" aria-label="User Profile">
+                        <img src="assets/user.png" alt="Profile Icon" style="width: 23px;">
+                    </a>
+                    <div id="profile-dropdown" class="profile-dropdown">
+                        <button id="sign-out-btn" class="btn btn-dark btn-small">Sign Out</button>
+                    </div>
+                </div>
+                <button id="sign-in-btn" class="btn btn-dark">Sign In</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="menu-page-main">
+        <section class="restaurant-header-section fade-in-element">
+            <div class="container">
+                <div class="restaurant-info-card">
+                    <img id="restaurant-image" src="https://placehold.co/254x169/cccccc/333" alt="Restaurant Image">
+                    <div class="restaurant-details">
+                        <h1 id="restaurant-name">Restaurant Name</h1>
+                        <p id="restaurant-cuisine">Cuisine</p>
+                        <div class="restaurant-stats-grid">
+                            <div class="stat-item">
+                                <p class="stat-value"><span class="rating-star">⭐</span> <span
+                                        id="restaurant-rating">4.0</span></p>
+                                <p class="stat-label">100+ ratings</p>
+                            </div>
+                            <div class="stat-item">
+                                <p class="stat-value"><span id="restaurant-delivery-time">30</span> Mins</p>
+                                <p class="stat-label">Delivery Time</p>
+                            </div>
+                            <div class="stat-item">
+                                <p class="stat-value">₹<span id="restaurant-cost">200</span></p>
+                                <p class="stat-label">Cost for two</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offers-box hidden">
+                        <h4>Offers</h4>
+                        <p id="restaurant-offer"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-body-section fade-in-element">
+            <div class="container">
+                <div class="menu-controls-bar">
+                    <div class="menu-search-bar">
+                        <input type="text" id="dish-search-input" placeholder="Search for dish">
+                    </div>
+                    <button id="filter-favorites-btn" class="favourite-btn">⭐ Favourite</button>
+                </div>
+
+                <div class="menu-layout">
+                    <aside class="menu-categories">
+                        <ul id="category-list">
+                        </ul>
+                    </aside>
+
+                    <div class="menu-items-area">
+                        <div id="menu-items-container">
+                        </div>
+                    </div>
+
+                    <aside class="cart-section">
+                        <h3 id="cart-title">Cart</h3>
+                        <div id="cart-items-container">
+                        </div>
+                        <div class="subtotal-section hidden" id="subtotal-container">
+                            <div class="subtotal-line">
+                                <span>Subtotal</span>
+                                <span id="subtotal-price">₹0</span>
+                            </div>
+                            <p class="extra-charges">Extra charges may apply</p>
+                        </div>
+                        <a href="checkout.html" id="checkout-link" class="hidden">
+                            <button id="checkout-btn" class="btn-checkout">Checkout</button>
+                        </a>
+                        <a href="#" id="desktop-call-link" class="hidden">
+                            <button id="desktop-call-btn" class="btn-checkout"></button>
+                        </a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="#" class="logo footer-logo">CampusHUB</a>
+                <nav class="footer-nav">
+                    <a href="../meet-team/index.html">Meet Our Team</a>
+                    <a href="../contact-page/index.html">Help & Support</a>
+                    <a href="../legal/terms.html">T&C</a>
+                </nav>
+                <div class="footer-contact">
+                    <span>Contact:</span>
+                    <a href="mailto:campusshub.ch@gmail.com">campushubqueries.gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <!-- <a href="#" aria-label="Facebook"><img src="https://placehold.co/24x24/ffffff/E62727?text=f" -->
+                            <!-- alt="Facebook"></a> -->
+                    <a href="https://www.instagram.com/campushub.muj/" aria-label="Instagram" target = "_blank"><img src="https://placehold.co/24x24/ffffff/E62727?text=i"
+                            alt="Instagram" ></a>
+                    <!-- <a href="#" aria-label="Twitter"><img src="https://placehold.co/24x24/ffffff/E62727?text=t" -->
+                            <!-- alt="Twitter"></a> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="mobile-menu-btn" class="mobile-floating-btn">
+        <span>&#127869; Menu</span>
+    </button>
+
+    <div id="category-modal-overlay" class="modal-overlay hidden">
+        <div id="category-modal" class="category-modal-content">
+            <div class="category-modal-header">
+                <h3 id="modal-restaurant-name-title">Menu</h3>
+
+                <button class="close-modal-btn">Close</button>
+
+            </div>
+            <ul id="modal-category-list">
+            </ul>
+        </div>
+    </div>
+
+    <a href="checkout.html" id="mobile-cart-bar">
+                <div class="mobile-cart-info">
+                        <img src="https://placehold.co/40x40/cccccc/333?text=C" alt="item" id="mobile-cart-image">
+                        <span id="mobile-cart-text">1 item added</span>
+                    </div>
+                <span id="mobile-cart-view-text">View cart &gt;</span>
+            </a>
+    <a href="#" id="mobile-call-bar">
+    </a>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+
+.dynamic-island-nav {
+    /* 1. HIDE BY DEFAULT on desktop */
+    display: none;
+
+    /* 2. Positioning */
+    position: fixed;
+    bottom: 25px;
+    /* Distance from the bottom edge */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center horizontally */
+    z-index: 1000;
+
+    /* 3. Appearance (from your design) */
+    
+    border-radius: 50px;
+    /* Pill shape */
+    padding: 14px 10px;
+    
+
+    /* --- The Glassmorphism Effect --- */
+    background: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent background */
+    backdrop-filter: blur(15px);
+    /* The most important part: the blur */
+    -webkit-backdrop-filter: blur(15px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    /* 4. Layout for icons */
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    /* Space between icons */
+    width: 90%;
+    max-width: 350px;
+    /* Max width on larger phones */
+}
+
+/* The individual icon links */
+.nav-icon {
+    color: #FFFFFF;
+    /* Default color: white */
+    font-size: 22px;
+    /* Icon size */
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: color 0.3s ease;
+    /* Smooth color change */
+}
+
+/* The "active" state */
+.nav-icon.active {
+    color: #9370DB;
+    /* Purple color for the active icon */
+}
+
+/* A subtle hover effect for non-active icons */
+.nav-icon:not(.active):hover {
+    color: #9370DB;
+}
+
+@media (max-width: 600px) {
+    .dynamic-island-nav {
+        display: flex;
+        /* SHOW the navigation bar */
+
+        
+    }
+
+    
+}

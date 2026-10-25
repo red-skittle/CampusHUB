@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - CampusHUB</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../footer/style.css">
+    <link rel="stylesheet" href="../mobile-nav/mobile-nav.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <a href="../index.html">
+                <div class="logo">CampusHUB</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../events-page/index.html">Events</a></li>
+                <li><a href="../academics/index.html" class="active">Academics</a></li>
+                <li><a href="../Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                <li><a href="../meet-team/index.html">Our Team</a></li>
+                <li><a href="../contact-page/index.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-right">
+
+                <form id="header-search-form" class="search-bar" style="display: none;">
+                    <input type="text" id="header-search-input" placeholder="Enter event you're looking for">
+                    <button type="submit" aria-label="Search"><img
+                            src="../Outlet-Website- Food Homepage/assets/search.png" alt="Search Icon"
+                            style="width: 23px;"></button>
+                </form>
+
+                <a href="../events-page/index.html" id="mobile-search-trigger" class="mobile-search-icon"
+                    style="display: none;">
+                    <i class="fas fa-search" style="color: white; font-size: 1.5rem;"></i>
+                </a>
+
+                <a href="#" id="wishlist-trigger">
+                    <i class="fa-regular fa-heart" style="color: white;"></i>
+                </a>
+
+                <ul class="nav-auth">
+                    <li class="signup"><a href="../create-account/">Sign up</a></li>
+                    <li>
+                        <a href="../login-pages/welcomelogin.html" class="log-in">
+                            Log in
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="profile-dropdown">
+
+                    <button class="profile-icon-btn" id="profileBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+
+                    <div class="dropdown-menu" id="profileMenu">
+
+                        <div class="menu-header">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <strong>Student Name</strong>
+                                <span>Student Name</span>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="../profilePage/index.html">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../registered-events/index.html">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Registered Events</span>
+                                </a>
+                            </li>
+            
+
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li>
+                                <a href="../index.html">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Sign Out</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- News ticker for Academics -->
+    <!-- <div id="news-ticker" class="news-ticker" aria-live="polite" aria-label="Campus news ticker">
+        <div class="ticker-track">
+            <div class="ticker-item">Welcome to CampusHUB — new semester updates available.</div>
+            <div class="ticker-item">Midterm schedules released — check your course pages.</div>
+            <div class="ticker-item">Library hours extended during exam week.</div>
+            <div class="ticker-item">Career fair registration now open — sign up today.</div>
+        </div>
+    </div> -->
+
+    <main class="container academics-main">
+        <!-- decorative background for subtle depth -->
+        <div class="academics-bg" aria-hidden="true"></div>
+        <section class="academics-hero grid-hero stacked">
+            <div class="hero-left">
+                <h1>Academics</h1>
+                <p class="subtitle">Everything you need for coursework, schedules, and academic support — organized by
+                    year.</p>
+
+                <div class="hero-cta">
+                    <!-- <a class="btn primary" href="#years">Choose Your Year</a> -->
+                    <a class="btn primary" href="#resources">Browse Resources</a>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="years" class="academics-selection container">
+            <h2 class="section-heading">Select Your Year</h2>
+            <p class="section-sub">Pick the year closest to your program stage to see tailored resources.</p>
+
+            <div class="card-grid improved" role="list">
+                <div class="magic-bento-card magic-bento-card--border-glow" href="./year1/index.html" role="listitem"
+                    aria-label="First year - Foundations and orientation">
+                    <div class="card-top">
+                        <div class="card-icon" aria-hidden="true">
+                            <!-- simple book icon -->
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H19" stroke="#fff" stroke-opacity="0.9"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 19.5A2.5 2.5 0 0 0 5.5 22H19" stroke="#fff" stroke-opacity="0.9"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12h16" stroke="#fff" stroke-opacity="0.7" stroke-width="1.2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-info">
+                            <div class="magic-bento-card__label">1st Year</div>
+                            <h3 class="magic-bento-card__title">Foundations & Orientation</h3>
+                            <p class="magic-bento-card__description">Get started with foundational courses, orientation
+                                guides and student resources tailored for first-year students.</p>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-cta btn primary" aria-hidden="true" onclick="alert('Coming Soon!')">Explore</button>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card magic-bento-card--border-glow" href="./year2/index.html" role="listitem"
+                    aria-label="Second year - Core courses & scheduling">
+                    <div class="card-top">
+                        <div class="card-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="6" width="18" height="12" rx="2" stroke="#fff" stroke-opacity="0.9"
+                                    stroke-width="1.4" />
+                                <path d="M8 10h8" stroke="#fff" stroke-opacity="0.8" stroke-width="1.2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-info">
+                            <div class="magic-bento-card__label">2nd Year</div>
+                            <h3 class="magic-bento-card__title">Core Courses & Scheduling</h3>
+                            <p class="magic-bento-card__description">Plan your degree pathway and manage course
+                                scheduling for the second year with degree planning tools.</p>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <span class="card-cta btn primary" aria-hidden="true" onclick="alert('Coming Soon!')">Explore</span>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card magic-bento-card--border-glow" href="./year3/index.html" role="listitem"
+                    aria-label="Third year - Advanced topics & electives">
+                    <div class="card-top">
+                        <div class="card-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="8" r="3" stroke="#fff" stroke-opacity="0.9" stroke-width="1.4" />
+                                <rect x="6" y="13" width="12" height="6" rx="1" stroke="#fff" stroke-opacity="0.8"
+                                    stroke-width="1.2" />
+                            </svg>
+                        </div>
+                        <div class="card-info">
+                            <div class="magic-bento-card__label">3rd Year</div>
+                            <h3 class="magic-bento-card__title">Advanced Topics & Electives</h3>
+                            <p class="magic-bento-card__description">Explore advanced courses, electives and project
+                                opportunities to prepare for your capstone.</p>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <span class="card-cta btn primary" aria-hidden="true" onclick="alert('Coming Soon!')">Explore</span>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card" href="./year4/index.html" role="listitem"
+                    aria-label="Fourth year - Capstone & career prep">
+                    <div class="card-top">
+                        <div class="card-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 12l9-6 9 6-9 6-9-6z" stroke="#fff" stroke-opacity="0.9" stroke-width="1.2"
+                                    stroke-linejoin="round" />
+                                <path d="M12 6v6" stroke="#fff" stroke-opacity="0.8" stroke-width="1.2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-info">
+                            <div class="magic-bento-card__label">4th Year</div>
+                            <h3 class="magic-bento-card__title">Final Year Preparation</h3>
+                            <p class="magic-bento-card__description">Guides for capstone projects, thesis submission,
+                                and career preparation for graduating students.</p>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <span class="card-cta btn primary" aria-hidden="true" onclick="alert('Coming Soon!')">Explore</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">CampusHUB</a>
+                    <p>Your one-stop solution for campus life. Discover events, order food, and connect with your
+                        community.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../meet-team/index.html">Our Team</a></li>
+                        <li><a href="../events-page/index.html">Events</a></li>
+                        <li><a href="../Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                        <li><a href="../contact-page/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../legal/terms.html">Terms and Conditions</a></li>
+                        <li><a href="../legal/privacy.html">Privacy Policy</a></li>
+                        <li><a href="../legal/refund.html">Refund Policy</a></li>
+                        <li><a href="../legal/cancellation.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="ph-bold ph-envelope"></i> <a href="mailto:campusshub.ch@gmail.com">campusshub.ch@gmail.com</a>
+                    </p>
+                    <!-- <p><i class="ph-bold ph-phone"></i> +1 234 567 890</p> -->
+                    <!-- <p><i class="ph-bold ph-map-pin"></i> 123 University Street, City, Country</p> -->
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <!-- <a href="#" aria-label="Facebook"><i class="ph-bold ph-facebook-logo"></i></a> -->
+                        <!-- <a href="#" aria-label="Twitter"><i class="ph-bold ph-twitter-logo"></i></a> -->
+                        <a href="https://www.instagram.com/campushub.muj/" aria-label="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CampusHUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="mobile-nav-placeholder"></div>
+
+    <div id="wishlist-container">
+        <span id="close-wishlist">&times;</span>
+        <h2>Saved Events</h2>
+        <p>Your saved events and items will appear here.</p>
+    </div>
+
+
+    <script type="module" src="../script.js"></script>
+    <script src="../footer/script.js"></script>
+    <script src="../mobile-nav/mobile-nav.js"></script>
+    <script src="../shared/news-ticker.js"></script>
+</body>
+
+</html>

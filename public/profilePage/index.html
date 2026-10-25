@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link rel="stylesheet" href="../nav-bar/nav.css">
+    <link rel="stylesheet" href="../footer/style.css">
+    <link rel="stylesheet" href="../mobile-nav/mobile-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="container-header" id="navbar-placeholder"></div>
+    <div class="page-container">
+
+        <main class="profile-content content-fade-in">
+            <h1 class="page-title">Profile</h1>
+            <p class="page-subtitle">View all your profile details from here</p>
+
+            <div class="profile-grid">
+
+                <section class="card card-left">
+                    <button class="edit-btn" id="edit-profile-btn" aria-label="Edit profile details">
+                        <i class="ph ph-pencil-simple"></i>
+                    </button>
+                    <h2 class="user-name" id="user-name-main"></h2>
+                    <p class="user-role">Student</p>
+                    <div class="avatar-ring-outer">
+                        <div class="avatar-ring-inner">
+                            <img id="user-avatar" src="https://placehold.co/200x200/aaa/bbb" alt="User Avatar"
+                                class="profile-avatar">
+                        </div>
+                    </div>
+                    <input type="file" id="avatar-upload-input" accept="image/*" style="display: none;">
+                </section>
+
+                <section class="card card-right">
+                    <h2 class="card-title">Bio and Other details</h2>
+                    <button class="edit-btn" id="edit-bio-btn" aria-label="Edit bio and other details">
+                        <i class="ph ph-pencil-simple"></i>
+                    </button>
+
+                    <div class="details-grid" id="details-grid">
+                        <div class="detail-item">
+                            <label class="detail-label">Name</label>
+                            <span class="detail-value" id="user-name"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label class="detail-label">Year of Study</label>
+                            <span class="detail-value" id="user-year"></span>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="detail-item">
+                            <label class="detail-label">Registration number</label>
+                            <span class="detail-value" id="user-reg-num"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label class="detail-label">Branch</label>
+                            <span class="detail-value" id="user-branch"></span>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="detail-item">
+                            <label class="detail-label">Date of Birth</label>
+                            <span class="detail-value" id="user-dob"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label class="detail-label">Block No.</label>
+                            <span class="detail-value" id="user-block"></span>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="detail-item">
+                            <label class="detail-label">Phone Number</label>
+                            <span class="detail-value" id="user-phone"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label class="detail-label">Room No.</label>
+                            <span class="detail-value" id="user-room"></span>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="detail-item item-full-width">
+                            <label class="detail-label">Outlook Mail</label>
+                            <span class="detail-value" id="user-mail"></span>
+                        </div>
+                    </div>
+                    <button class="save-btn" id="save-details-btn">Save Changes</button>
+                </section>
+
+                <section class="card card-about-me">
+                    <h2 class="card-title">About Me</h2>
+                    <p class="about-me-text" id="user-about">Lorem Ipsum</p>
+                </section>
+
+                <section class="card-settings">
+                    <div class="notifications">
+                        <div class="toggle-container">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="mail-notifications-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <label for="mail-notifications-toggle" class="toggle-label">Recieve Mail
+                                Notifications</label>
+                        </div>
+                    </div>
+
+                    <div class="danger-zone">
+                        <button class="delete-button" id="delete-account-btn">
+                            <i class="ph ph-x-circle"></i>
+                            <span>Delete My Account</span>
+                        </button>
+                    </div>
+                </section>
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <div class="modal-overlay" id="delete-modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">Are you sure ?</h2>
+            <p class="modal-text">You want to Permanently delete your account</p>
+            <div class="modal-actions">
+                <button class="modal-btn btn-delete" id="confirm-delete-btn">Delete</button>
+                <button class="modal-btn btn-keep" id="cancel-delete-btn">Keep account</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-nav-placeholder"></div>
+
+    <script src="../nav-bar/nav.js"></script>
+    <script type="module" src="../nav-bar/navbar-auth.js"></script>
+    <script src="../footer/script.js" defer></script>
+    <script type="module" src="../firebase-config.js"></script>
+    
+    <script src="../mobile-nav/mobile-nav.js"></script>
+    <script src="/public/shared/global-search-redirect.js" defer></script>
+
+    <script type="module" src="script.js" defer></script>
+
+</html>

@@ -1,0 +1,89 @@
+<nav>
+    <a href="../index.html">
+        <div class="logo">CampusHUB</div>
+    </a>
+    <ul class="nav-links">
+        <!-- <li><a href="/index.html">Home</a></li> -->
+        <li><a href="../events-page/">Events</a></li>
+        <li><a href="../academics/">Academics</a></li>
+        <li><a href="../Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+        <li><a href="../meet-team/">Our Team</a></li>
+        <li><a href="../contact-page/">Contact Us</a></li>
+    </ul>
+    <div class="nav-right">
+
+        <form id="header-search-form" class="search-bar" style="display: none;">
+            <input type="text" id="header-search-input" placeholder="Enter event you're looking for">
+            <button type="submit" aria-label="Search"><img src="../Outlet-Website- Food Homepage/assets/search.png"
+                    alt="Search Icon" style="width: 23px;"></button>
+        </form>
+
+        <div id="mobile-search-trigger" class="mobile-search-icon" style="cursor: pointer; display: none;">
+            <i class="fas fa-search" style="color: white; font-size: 1.5rem;"></i>
+        </div>
+
+        <a href="#" id="wishlist-trigger">
+            <i class="fa-regular fa-heart" style="color: white;"></i>
+        </a>
+
+        <ul class="nav-auth">
+            <li><a href="/create-account/create-account-basic.html">Sign up</a></li>
+            <li>
+                <a href="/login-pages/welcomelogin.html" class="log-in">
+                    Log in
+                    <!-- <i class="ph-bold ph-plus-circle"></i> -->
+                </a>
+            </li>
+        </ul>
+
+        <div class="profile-dropdown">
+
+            <button class="profile-icon-btn" id="profileBtn">
+                <i class="fas fa-user"></i>
+            </button>
+
+            <div class="dropdown-menu" id="profileMenu">
+
+                <div class="menu-header">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <strong>Student Name</strong>
+                        <span>Student Name</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/profilePage/index.html">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/registered-events/index.html">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Registered Events</span>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="wishlist-container">
+            <span id="close-wishlist">&times;</span>
+            <h2>Saved Events</h2>
+            <p>Your saved events and items will appear here.</p>
+    </div>
+
+</nav>

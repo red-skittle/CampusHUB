@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB</title>
+    <link rel="stylesheet" href="adminlogin.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-body">
+    <div class="back-btn">
+        <a href="../"><button>Back to homepage </button></a>
+    </div>
+    <div class="login-container">
+        <div class="login-header">
+            <a href="#" class="login-switch active">Log in</a>
+
+
+        </div>
+        <h2 class="login-title">Admin Portal Login</h2>
+
+        <form class="login-form">
+            <div class="form-group">
+                <label for="adminEmail">Admin Email</label>
+                <input type="email" id="adminEmail" placeholder="Enter Mail">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Password</label>
+                <input type="password" id="adminPassword" placeholder="Enter Password">
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" class="custom-checkbox" required>
+                <label for="terms">By logging in, I agree and accept the Terms of Service</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="remember" class="custom-checkbox">
+                <label for="remember">Remember this device for 30 days</label>
+            </div>
+
+            <div class="login-buttons">
+                <button type="submit" class="btn btn-login">Log in</button>
+                <!-- <a href="/create-account/create-account-admin.html"><button type="button" class="btn btn-create-account">Create an Account</button></a> -->
+            </div>
+
+            <div class="login-footer">
+                <a href="../forgot-pass/forgot.html" class="forgot-password">Forgot Password?</a>
+                <a href="../login-pages/welcomelogin.html" class="forgot-password">Student Login</a>
+            </div>
+        </form>
+    </div>
+    <script type="module" src="./adminlogin.js"></script>
+</body>
+
+</html>

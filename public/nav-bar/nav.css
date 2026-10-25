@@ -1,0 +1,597 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-header {
+    width: 100%;
+    max-width: 1400px;
+    padding: 1rem 2rem;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cheader {
+    width: 100%;
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    /* justify-content: space-between */
+    align-items: center;
+    gap: 2rem;
+    padding: 0px;
+}
+
+.logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-auth {
+    display: none;
+    /* Hidden by default until auth state is determined */
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+/* When auth state is determined and user is logged out, show as flex */
+.nav-auth.show {
+    display: flex;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Use the same gap as your nav-auth */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--text-primary);
+}
+
+.search-bar {
+    display: flex;
+    border: 1px solid rgb(164, 160, 237);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    padding: 12px 15px;
+    width: 350px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+.fa-heart {
+    font-size: 1.7rem;
+}
+
+/*
+ * STYLES FOR THE WISHLIST CONTAINER
+ * -- ANIMATION ADDITIONS HERE --
+ */
+
+#wishlist-container {
+    /* Existing styles */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 25px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    box-sizing: border-box;
+
+    /* --- ANIMATION RELATED STYLES --- */
+    transform: translateX(100%);
+    /* Start completely off-screen to the right */
+    transition: transform 0.4s ease-out;
+    /* Smooth slide animation over 0.4 seconds */
+    visibility: hidden;
+    /* Hide it completely when off-screen for accessibility/tab order */
+    overflow-y: auto;
+}
+
+#wishlist-container h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+#wishlist-container>p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* ========================
+   SAVED EVENTS SIDEBAR STYLES
+   ======================== */
+
+.saved-events-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.saved-events-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.saved-events-list::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+
+.saved-events-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.saved-events-list::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+.saved-event-card {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.saved-event-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(-3px);
+    border-color: #8A2BE2; /* var(--primary-purple) */
+}
+
+.saved-event-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.saved-event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.saved-event-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.saved-event-info h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.saved-event-club {
+    font-size: 12px;
+    color: #a78bfa; /* var(--light-purple) */
+    margin: 0;
+    font-weight: 500;
+}
+
+.saved-event-date,
+.saved-event-venue {
+    font-size: 12px;
+    color: #ccc;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.saved-event-date i,
+.saved-event-venue i {
+    font-size: 11px;
+    color: #a78bfa; /* var(--light-purple) */
+}
+
+.saved-event-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-saved-btn,
+.view-event-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* This is the class JavaScript will add to show the container */
+#wishlist-container.show {
+    transform: translateX(0);
+    /* Slide into view */
+    visibility: visible;
+    /* Make it visible */
+}
+
+/* Existing styles for the 'X' close button */
+#close-wishlist {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+#close-wishlist:hover {
+    color: #fff;
+}
+
+#wishlist-trigger {
+    display: inline-block !important;
+    vertical-align: middle;
+    /* Helps align it */
+}
+
+.profile-dropdown {
+    position: relative;
+
+
+    /*TO HIDE WHEN NOT LOGGED IN , OG VALUE INLINE-BLOCK*/
+
+    display: none;
+}
+
+/* The circular profile icon button */
+.profile-icon-btn {
+
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* The dropdown menu itself */
+.dropdown-menu {
+    position: absolute;
+    top: 55px;
+    /* Position below the icon */
+    right: 0;
+    min-width: 300px;
+    border-radius: 12px;
+    padding: 1rem;
+    z-index: 1000;
+
+    /* --- The Glassmorphism Effect --- */
+    background: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent background */
+    backdrop-filter: blur(15px);
+    /* The most important part: the blur */
+    -webkit-backdrop-filter: blur(15px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    /* --- Hide by default --- */
+    /* Use opacity and visibility for transitions */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+/* --- The ".show" class (added by JavaScript) --- */
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* --- Menu Internals --- */
+.menu-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.menu-header .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.menu-header .user-info {
+    flex-grow: 1;
+}
+
+.menu-header .user-info strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.menu-header .user-info span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.menu-header .edit-icon {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu ul li a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-menu hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0.75rem 0;
+}
+
+.log-in {
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.log-in:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Hides menu links: Events, Food, etc. */
+    }
+
+    .search-bar {
+        display: none;
+        /* Hides desktop search bar */
+    }
+
+    .mobile-search-icon {
+        display: inline-block;
+        /* Shows mobile search icon */
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 580px) {
+    .nav-auth {
+        display: none;
+        /* Hides "Sign up" and "Log in" buttons */
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    nav {
+        gap: 0rem;
+        padding: 0;
+        /* Ensure no extra padding */
+    }
+
+    .nav-right {
+        margin-left: auto;
+        /* This pushes all icons to the far right */
+        gap: 15px;
+        /* Adjust space between icons */
+    }
+}
+
+
+/*
+ * MOBILE SEARCH BAR TOGGLE
+ * Styles for when the search bar should be visible on mobile
+ * after clicking the search icon (.mobile-active class is added).
+*/
+.search-bar.mobile-active {
+    display: flex !important;
+    /* Override 'display: none' from media query */
+    position: absolute;
+    /* Position over content */
+    top: 60px;
+    /* Adjust: Below header (depends on header height) */
+    left: 5%;
+    /* Some spacing from edges */
+    right: 5%;
+    width: 90%;
+    /* Adjust width */
+    background: rgba(30, 41, 59, 0.9);
+    /* Dark semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Add blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    /* Match desktop style */
+    border-radius: 10px;
+    /* Match desktop style */
+    z-index: 998;
+    /* Below modal (1000) but above page */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    animation: slideDownSearch 0.3s ease-out;
+    /* Optional animation */
+}
+
+/* Adjust input width within the mobile active bar */
+.search-bar.mobile-active input {
+    width: 100%;
+    /* Make input take full width inside the bar */
+}
+
+
+/* Optional: Animation keyframes */
+@keyframes slideDownSearch {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Ensure these rules exist to hide/show initially --- */
+@media (max-width: 768px) {
+    .search-bar {
+        display: none;
+        /* Hide desktop bar by default on mobile */
+    }
+
+    .mobile-search-icon {
+        display: inline-block;
+        /* Show mobile icon */
+    }
+
+    /* ... other 768px styles ... */
+}
+
+/* --- You might need to hide the mobile icon explicitly on larger screens --- */
+@media (min-width: 769px) {
+
+    #wishlist-trigger {
+        display: none;
+    }
+
+    .mobile-search-icon {
+        display: none;
+        /* Hide mobile icon on desktop */
+    }
+
+    .search-bar {
+        display: flex;
+        /* Ensure desktop bar is shown */
+    }
+
+    /* If .mobile-active persists, hide it explicitly on desktop */
+    .search-bar.mobile-active {
+        /* Reset styles if needed, or just rely on the default .search-bar styles */
+        position: static;
+        width: auto;
+        /* Revert to default width */
+        background: none;
+        backdrop-filter: none;
+        padding: 0;
+        border: 1px solid rgb(164, 160, 237);
+        /* Restore border */
+        box-shadow: none;
+        animation: none;
+    }
+
+    .search-bar.mobile-active input {
+        width: 350px;
+        /* Restore desktop input width */
+    }
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="/nav-bar/nav.css"> -->
+    <link rel="icon" type="image/png" href="images/CampusHUBlogo.png">
+    <link rel="stylesheet" href="footer/style.css">
+    <link rel="stylesheet" href="mobile-nav/mobile-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <a href="index.html">
+                <div class="logo">CampusHUB</div>
+            </a>
+            <ul class="nav-links">
+                <!-- <li><a href="/index.html">Home</a></li> -->
+                <li><a href="./events-page/index.html">Events</a></li>
+                <li><a href="./academics/index.html">Academics</a></li>
+                <li><a href="./Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                <li><a href="./meet-team/index.html">Our Team</a></li>
+                <li><a href="./contact-page/index.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-right">
+
+                <form id="header-search-form" class="search-bar" style="display: none;">
+                    <input type="text" id="header-search-input" placeholder="Enter event you're looking for">
+                    <button type="submit" aria-label="Search"><img
+                            src="./Outlet-Website- Food Homepage/assets/search.png" alt="Search Icon"
+                            style="width: 23px;"></button>
+                </form>
+
+                <a href="events-page/index.html" id="mobile-search-trigger" class="mobile-search-icon"
+                    style="display: none;">
+                    <i class="fas fa-search" style="color: white; font-size: 1.5rem;"></i>
+                </a>
+
+                <a href="#" id="wishlist-trigger">
+                    <i class="fa-regular fa-heart" style="color: white;"></i>
+                </a>
+
+                <ul class="nav-auth">
+                    <li class="signup"><a href="./create-account/">Sign up</a></li>
+                    <li>
+                        <a href="./login-pages/welcomelogin.html" class="log-in">
+                            Log in
+                            <i class="ph-bold ph-plus-circle"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="profile-dropdown">
+
+                    <button class="profile-icon-btn" id="profileBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+
+                    <div class="dropdown-menu" id="profileMenu">
+
+                        <div class="menu-header">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <strong>Student Name</strong>
+                                <span>Student Name</span>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="profilePage/index.html">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="registered-events/index.html">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Registered Events</span>
+                                </a>
+                            </li>
+                            <li id="manage-events-link" style="display: none;">
+                                <a href="admin-events/admin.html">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Manage Events</span>
+                                </a>
+                            </li>
+                            
+
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li>
+                                <a href="index.html">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Sign Out</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- News ticker (site-wide) -->
+    <!-- <div id="news-ticker" class="news-ticker" aria-live="polite" aria-label="Campus news ticker">
+        <div class="ticker-track">
+            <div class="ticker-item">Welcome to CampusHUB — new semester updates available.</div>
+            <div class="ticker-item">Midterm schedules released — check your course pages.</div>
+            <div class="ticker-item">Library hours extended during exam week.</div>
+            <div class="ticker-item">Career fair registration now open — sign up today.</div>
+        </div>
+    </div> -->
+
+    <main class="container">
+        <div class="hero-content">
+            <div class="tag-line">
+                <h1 id="typing-headline"></h1>
+            </div>
+
+            <p class="subtitle fade-in-on-load">Reimagining the student experience with technology that brings all your
+                campus needs
+                together in one smart, accessible space.</p>
+
+            <div class="action-buttons fade-in-on-load">
+                <a href="events-page/index.html"><button class="btn getting-started">
+                        <i class="ph-bold ph-rocket-launch"></i>
+                        Events
+                    </button>
+                </a>
+                <a href="Outlet-Website- Food Homepage/HomePage.html"><button class="btn food">Food</button></a>
+            </div>
+
+            <div class="features fade-in-on-load">
+                <ul>
+                    <li>
+                        <i class="ph-bold ph-shapes"></i>
+                        Convenience & Centralization
+                    </li>
+                    <li>
+                        <i class="ph-bold ph-timer"></i>
+                        Time Saving
+                    </li>
+                    <li>
+                        <i class="ph-bold ph-student"></i>
+                        Enhanced Student Experience
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <section class="upcoming-events-section container">
+        <h2>Upcoming Events</h2>
+        <div class="events-carousel">
+            <button class="scroll-button scroll-left"><i class="ph-bold ph-caret-left"></i></button>
+            <div class="events-container">
+                <!-- Event cards will be dynamically inserted here -->
+            </div>
+            <button class="scroll-button scroll-right"><i class="ph-bold ph-caret-right"></i></button>
+        </div>
+    </section>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo">CampusHUB</a>
+                    <p>Your one-stop solution for campus life. Discover events, order food, and connect with your
+                        community.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="./meet-team/index.html">Our Team</a></li>
+                        <li><a href="./events-page/index.html">Events</a></li>
+                        <li><a href="./Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                        <li><a href="./contact-page/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="./legal/terms.html">Terms and Conditions</a></li>
+                        <li><a href="./legal/privacy.html">Privacy Policy</a></li>
+                        <li><a href="./legal/refund.html">Refund Policy</a></li>
+                        <li><a href="./legal/cancellation.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="ph-bold ph-envelope"></i> <a
+                            href="mailto:campusshub.ch@gmail.com">campushubqueries@gmail.com</a>
+                    </p>
+                    <!-- <p><i class="ph-bold ph-phone"></i> +1 234 567 890</p> -->
+                    <!-- <p><i class="ph-bold ph-map-pin"></i> 123 University Street, City, Country</p> -->
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <!-- <a href="#" aria-label="Facebook"><i class="ph-bold ph-facebook-logo"></i></a> -->
+                        <!-- <a href="#" aria-label="Twitter"><i class="ph-bold ph-twitter-logo"></i></a> -->
+                        <a href="https://www.instagram.com/campushub.muj/" aria-label="Instagram"><i
+                                class="ph-bold ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CampusHUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="mobile-nav-placeholder"></div>
+
+    <div id="wishlist-container">
+        <span id="close-wishlist">&times;</span>
+        <h2>Saved Events</h2>
+        <p>Your saved events and items will appear here.</p>
+    </div>
+
+
+    <!-- <script src="/nav-bar/nav.js"></script> -->
+    <script type="module" src="script.js"></script>
+    <script src="footer/script.js"></script>
+    <script src="mobile-nav/mobile-nav.js"></script>
+    <script src="shared/news-ticker.js"></script>
+    <script src="/public/shared/global-search-redirect.js" defer></script>
+</body>
+
+</html>

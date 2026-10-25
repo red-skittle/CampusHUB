@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Registered Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../nav-bar/nav.css">
+    <link rel="stylesheet" href="../events-page/modal.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link rel="stylesheet" href="../footer/style.css">
+    <link rel="stylesheet" href="../mobile-nav/mobile-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
+</head>
+
+<body>
+    <div class='container-header' id="navbar-placeholder"></div>
+
+    <div class="hero">
+        <h1>Registered Events</h1>
+        <p>Here are the events you have registered for.</p>
+    </div>
+
+    <div class="events-container">
+
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <img src="https://via.placeholder.com/800x400" alt="Event Banner" class="modal-banner">
+                <div class="modal-header-content">
+                    <h2 class="modal-event-name">Event Name</h2>
+                    <p class="modal-organizer">Organized by: Club Name</p>
+                    <p class="modal-category">Category</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-info-grid">
+                    <div class="info-item">
+                        <i class="ri-calendar-todo-fill"></i>
+                        <div>
+                            <p>Date & Time</p>
+                            <span class="modal-date-time">25th October 2025, 5:00 PM – 8:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ri-map-pin-2-fill"></i>
+                        <div>
+                            <p>Location</p>
+                            <span class="modal-location">LT-3, AB-1, Manipal University Jaipur</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ri-money-rupee-circle-fill"></i>
+                        <div>
+                            <p>Entry Fee / Prize Pool</p>
+                            <span class="modal-fee-prize">₹100 / ₹10,000 Prize Pool</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ri-group-fill"></i>
+                        <div>
+                            <p>Team Size</p>
+                            <span class="modal-team-size">Solo / Team of up to 4</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ri-macbook-fill"></i>
+                        <div>
+                            <p>Mode</p>
+                            <span class="modal-mode">Offline / Online</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ri-time-fill"></i>
+                        <div>
+                            <p>Registration Deadline</p>
+                            <span class="modal-deadline">24th October 2025</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ri-check-double-fill"></i>
+                        <div>
+                            <p>Eligibility</p>
+                            <span class="modal-eligibility">Open for all</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ri-external-link-line"></i>
+                        <div>
+                            <p>Registration</p>
+                            <a href="#" class="modal-reg-link" target="_blank">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-about">
+                    <h3>About the Event</h3>
+                    <p class="modal-description">Event description will appear here.</p>
+                </div>
+                <div class="modal-highlights">
+                    <h3>Highlights</h3>
+                    <div class="highlights-container">
+                        <span class="highlight-badge">Sample Highlight</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-view-qr-btn">View QR Code</button>
+                <div class="modal-social-share">
+                    <button><i class="ri-whatsapp-fill"></i></button>
+                    <button><i class="ri-instagram-fill"></i></button>
+                    <button><i class="ri-share-forward-fill"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/index.html" class="logo">CampusHUB</a>
+                    <p>Your one-stop solution for campus life. Discover events, order food, and connect with your
+                        community.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="./meet-team/index.html">Our Team</a></li>
+                        <li><a href="./events-page/index.html">Events</a></li>
+                        <li><a href="./Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                        <li><a href="./contact-page/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../legal/terms.html">Terms and Conditions</a></li>
+                        <li><a href="../legal/privacy.html">Privacy Policy</a></li>
+                        <li><a href="../legal/refund.html">Refund Policy</a></li>
+                        <li><a href="../legal/cancellation.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="ph-bold ph-envelope"></i> <a href="mailto:campusshub.ch@gmail.com">campusshub.ch@gmail.com</a>
+                    </p>
+                    <!-- <p><i class="ph-bold ph-phone"></i> +1 234 567 890</p> -->
+                    <!-- <p><i class="ph-bold ph-map-pin"></i> 123 University Street, City, Country</p> -->
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <!-- <a href="#" aria-label="Facebook"><i class="ph-bold ph-facebook-logo"></i></a> -->
+                        <!-- <a href="#" aria-label="Twitter"><i class="ph-bold ph-twitter-logo"></i></a> -->
+                        <a href="https://www.instagram.com/campushub.muj/" aria-label="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CampusHUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="mobile-nav-placeholder"></div>
+
+
+    <script type="module" src="script.js"></script>
+    <script src="../footer/script.js"></script>
+    <script type="module" src="../nav-bar/navbar-auth.js"></script>
+    <script src="../nav-bar/nav.js"></script>
+    <script src="../mobile-nav/mobile-nav.js"></script>
+    <script src="/public/shared/global-search-redirect.js" defer></script>
+
+</body>
+
+</html>

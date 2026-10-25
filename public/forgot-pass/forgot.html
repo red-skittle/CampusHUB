@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB - Forgot Password</title>
+    <link rel="stylesheet" href="forgot.css">
+    <link rel="icon" type="image/png" href="../images/CampusHUBlogo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="modal-page-body">
+    <div class="modal-backdrop">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="login-switch-group">
+                    <a href="../login-pages/welcomelogin.html" class="login-switch">Log in</a>
+                    <span>or</span>
+                    <a href="../create-account/create-account-basic.html" class="login-switch">Sign up</a>
+                    <!-- <button class="close-btn"><i class="ph-bold ph-x"></i></button> -->
+                </div>
+            </div>
+
+            <h2 class="modal-title">Forgot Password</h2>
+
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" placeholder="Enter Mail">
+                </div>
+
+                <div class="login-buttons">
+                    <button type="submit" class="btn btn-login full-width-btn">Send Reset Link</button>
+                </div>
+
+                <div class="bottom-links">
+                    <a href="../index.html" class="forgot-password">Back to Home</a>
+                    <a href="../login-pages/adminlogin.html" class="admin-portal">Admin Portal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

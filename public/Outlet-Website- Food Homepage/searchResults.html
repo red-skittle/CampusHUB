@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - CampusHUB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="Icon" href="https://placehold.co/32x32/E62727/ffffff?text=C">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Archivo+Black&display=swap" rel="stylesheet">
+    <!-- <script src="data.js"></script> -->
+    <script type="module" src="searchResults.js" defer></script> 
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="HomePage.html" class="logo">
+                <img src="https://placehold.co/32x32/E62727/ffffff?text=C" alt="CampusHUB Logo" >
+                <span>CampusHUB</span></a>
+            <nav class="main-nav">
+                <form id="header-search-form" class="search-bar">
+                    <input type="text" id="header-search-input" placeholder="Enter item or outlet...">
+                    <button type="submit" aria-label="Search"><img src="assets/search.png" alt="Search Icon" style="width: 23px;"></button>
+                </form>
+                <a href="checkout.html" class="profile-link" aria-label="Shopping Bag"><img src="assets/shopping-bag.png" alt="Shopping Bag Icon" style="width: 23px;"></a>
+                <div id="profile-container" class="profile-container hidden">
+                    <a href="#" id="profile-icon" class="profile-link" aria-label="User Profile">
+                        <img src="assets/user.png" alt="Profile Icon" style="width: 23px;">
+                    </a>
+                    <div class="profile-dropdown">
+                        <button id="sign-out-btn" class="btn btn-dark btn-small">Sign Out</button>
+                    </div>
+                </div>
+                <button id="sign-in-btn" class="btn btn-dark">Sign In</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-results-section fade-in-element">
+            <div class="container">
+                <h2 id="search-results-title">Search results for...</h2>
+                <div class="search-tabs">
+                    <a href="#" id="dishes-tab" class="tab active">Dishes</a>
+                    <a href="#" id="restaurants-tab" class="tab">Restaurants</a>
+                </div>
+                <div id="results-grid">
+                </div>
+                <button id="view-more-btn" class="view-more hidden">View More ></button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="HomePage.html" class="logo footer-logo">CampusHUB</a>
+                <nav class="footer-nav">    
+                    <a href="../meet-team/index.html">Meet Our Team</a>
+                    <a href="../contact-page/index.html">Help & Support</a>
+                    <a href="../legal/terms.html">T&C</a> </nav>
+                <div class="footer-contact">
+                    <span>Contact:</span>
+                    <a href="mailto:campusshub.ch@gmail.com">campushubqueries.gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                 <div class="social-links"> <a href="#" aria-label="Facebook"><img src="https://placehold.co/24x24/ffffff/E62727?text=f" alt="Facebook"></a> <a href="#" aria-label="Instagram"><img src="https://placehold.co/24x24/ffffff/E62727?text=i" alt="Instagram"></a> <a href="#" aria-label="Twitter"><img src="https://placehold.co/24x24/ffffff/E62727?text=t" alt="Twitter"></a> </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

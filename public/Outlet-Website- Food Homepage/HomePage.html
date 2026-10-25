@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHUB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="Icon" href="https://placehold.co/32x32/E62727/ffffff?text=C">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Archivo+Black&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="small-container">
+                <a href=" HomePage.html" class="logo">
+                    <img src="https://placehold.co/32x32/E62727/ffffff?text=C" alt="CampusHUB Logo">
+                    <span>CampusHUB</span></a>
+                
+            </div>
+            <ul class="nav-links">
+                <!-- <li><a href="/index.html">Home</a></li> -->
+                <li><a href="../events-page/index.html">Events</a></li>
+                <li><a href="../academics/index.html">Academics</a></li>
+                <li><a href="../Outlet-Website- Food Homepage/HomePage.html">Food</a></li>
+                <li><a href="../meet-team/index.html">Our Team</a></li>
+                <li><a href="../contact-page/index.html">Contact Us</a></li>
+            </ul>
+            <nav class="main-nav">
+                <form id="header-search-form" class="search-bar">
+                    <input type="text" id="header-search-input" placeholder="Enter item or outlet you're looking for">
+                    <button type="submit" aria-label="Search"><img src="assets/search.png" alt="Search Icon"
+                            style="width: 23px;"></button>
+                </form>
+
+                <div class="cart-link-container">
+                    <a href="#" class="profile-link" aria-label="User Profile" id="js-cartlink"><img
+                            src="assets/shopping-bag.png" alt="Profile Icon" style="width: 23px;"></a>
+
+                    <div class="cart-link-dropdown">
+                        <a href="checkout.html"></a> <button id="sign-out-btn2"
+                            class="btn btn-dark btn-small">cart</button>
+                    </div>
+
+                </div>
+
+                <div id="profile-container" class="profile-container hidden">
+                    <a href="#" id="profile-icon" class="profile-link" aria-label="User Profile">
+                        <img src="assets/user.png" alt="Profile Icon" style="width: 23px;">
+                    </a>
+                    <div class="profile-dropdown">
+                        <a href="../profilePage/index.html"><button class="btn btn-dark btn-small">View Profile</button></a>
+                        <a href="./order-history.html"><button class="btn btn-dark btn-small">My Orders</button></a>
+                        <button id="sign-out-btn" class="btn btn-dark btn-small">Sign Out</button>
+                    </div>
+                </div>
+                <button id="sign-in-btn" class="btn btn-dark">Sign In</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section fade-in-element">
+            <img src="./assets/blob1.png" alt="Decorative background shape" class="hero-blob-image">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1>
+                        Hassle free <span class="text-primary">ordering</span>
+                        Food delivery
+                        <span class="text-primary">made</span>
+                        <span class="text-primary">simple.</span>
+                    </h1>
+                    <p>Discover the best food from the highest-rated outlets on campus. Quick, easy, and delivered right
+                        to you.</p>
+                    <!-- <button class="btn btn-dark">Get Started</button> -->
+                    <!-- <div class="featured-outlets">
+                        <p class="featured-title">Highest rated outlets of the month</p>
+                        <div class="outlet-tags">
+                        </div>
+                    </div> -->
+                </div>
+                <img src="./assets/blob2.png" alt="Decorative background shape" class="hero-blob-image-2">
+                <div class="hero-images">
+                    <img src="./assets/hero_1.png" alt="Delicious food photo 1">
+                    <img src="./assets/hero_2.png" alt="Delicious food photo 2">
+                    <img src="./assets/hero_3.png" alt="Delicious food photo 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="categories-section fade-in-element">
+            <div class="container">
+                <h2>What’s on your mind?</h2>
+                <div class="category-grid">
+                    <a href="searchResults.html?query=Sandwich" class="category-link">
+                        <div class="category-item">
+                            <img src="https://img.freepik.com/free-photo/side-view-club-sandwich-with-salted-cucumbers-lemon-olives-round-white-plate_176474-3049.jpg?semt=ais_hybrid&w=740&q=80" alt="Sandwich">
+                            <p>Sandwich</p>
+                        </div>
+                    </a>
+                    <a href="searchResults.html?query=North Indian" class="category-link">
+                        <div class="category-item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcmm1Mmt8gek3m7nFDoe396D6oy8zSRQxCvA&s" alt="North Indian Thali">
+                            <p>North Indian Thali</p>
+                        </div>
+                    </a>
+                    <a href="searchResults.html?query=Breakfast" class="category-link">
+                        <div class="category-item">
+                            <img src="https://i0.wp.com/www.pepperdelight.com/wp-content/uploads/2017/05/pepper-delight-avocado-egg-toast-1.jpg?resize=852%2C1104" alt="Egg Breakfast">
+                            <p>Egg Breakfast</p>
+                        </div>
+                    </a>
+                    <a href="searchResults.html?query=Rolls" class="category-link">
+                        <div class="category-item">
+                            <img src="https://www.cookwithnabeela.com/wp-content/uploads/2024/02/ChickenWrap.webp" alt="Rolls & Puffs">
+                            <p>Rolls & Puffs</p>
+                        </div>
+                    </a>
+                    <a href="searchResults.html?query=Salads" class="category-link">
+                        <div class="category-item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgw2yLny8f22pWZ6Qg-cUOMtOaMEXoWLFgRg&s" alt="Salads">
+                            <p>Salads</p>
+                        </div>
+                    </a>
+                    <a href="searchResults.html?query=Biryani" class="category-link">
+                         <div class="category-item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPkrextD5AUzleyWSR6wLohiJc4HD6ronEyg&s" alt="Biryani Box">
+                            <p>Biryani Box</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- <section id="search-banner-section" class="search-banner fade-in-element">
+            <div class="container">
+                <form class="banner-search-form">
+                    <label for="banner-search">Search by Restaurant</label>
+                    <input type="text" id="banner-search" placeholder="Enter restaurant you are looking for">
+                    <button class="btn btn-dark">Search Now</button>
+                </form>
+            </div>
+        </section> -->
+
+        <section class="outlets-section">
+            <div class="container">
+                <h2>Outlets</h2>
+                <div class="outlet-grid">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="#" class="logo footer-logo">CampusHUB</a>
+                <nav class="footer-nav">
+                    <a href="../meet-team/index.html">Meet Our Team</a>
+                    <a href="../contact-page/index.html">Help & Support</a>
+                    <a href="../legal/terms.html">T&C</a>
+                </nav>
+                <div class="footer-contact">
+                    <span>Contact:</span>
+                    <a href="mailto:campusshub.ch@gmail.com">campushubqueries@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <!-- <a href="#" aria-label="Facebook"><img src="https://placehold.co/24x24/ffffff/E62727?text=f" -->
+                            <!-- alt="Facebook"></a> -->
+                    <a href="https://www.instagram.com/campushub.muj/" aria-label="Instagram" target = "_blank"><img src="https://placehold.co/24x24/ffffff/E62727?text=i"
+                            alt="Instagram" ></a>
+                    <!-- <a href="#" aria-label="Twitter"><img src="https://placehold.co/24x24/ffffff/E62727?text=t" -->
+                            <!-- alt="Twitter"></a> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../firebase-config.js"></script>
+    <script type="module" src="script.js" defer></script>
+</body>
+
+</html>
